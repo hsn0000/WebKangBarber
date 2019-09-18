@@ -1,195 +1,81 @@
 @extends('layouts.frontend')
 
-
+@section('head')
+  {!!config('about.title_about')!!}
+  
 @section('content')
-<section class="popular-course-area section-gap">
+
+<section class="banner-area relative" id="home" style="background: url('{{config('about.image_url')}}')">
+				<div class="overlay overlay-bg"></div>	
 				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="menu-content pb-70 col-lg-8">
-							<div class="title text-center">
-								<h1 class="mb-10">Popular Courses we offer</h1>
-								<p>There is a moment in the life of any aspiring.</p>
-							</div>
-						</div>
-					</div>						
+					<div class="row fullscreen d-flex align-items-center justify-content-between">
+						<div class="banner-content col-lg-9 col-md-12">
+							<h1 class="text-uppercase">
+							 {{config('about.h1_about')}}		
+							</h1>
+							<h4 style="color: #808080" >
+							{{config('about.h4_about')}}
+							</h4>
+						</div>										
+					</div>
+				</div>					
+			</section>
+
+			<section class="contact-page-area section-gap">
+				<div class="container">
 					<div class="row">
-						<div class="active-popular-carusel">
-							<div class="single-popular-carusel">
-								<div class="thumb-wrap relative">
-									<div class="thumb relative">
-										<div class="overlay overlay-bg"></div>	
-										<img class="img-fluid" src="{{asset('/frontend')}}/img/p1.jpg" alt="">
-									</div>
-									<div class="meta d-flex justify-content-between">
-										<p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
-										<h4>$150</h4>
-									</div>									
+						{!! config('about.lokasi') !!}
+						<div class="col-lg-4 d-flex flex-column address-wrap">
+							<div class="single-contact-address d-flex flex-row">
+								<div class="icon">
+									<span class="lnr lnr-home"></span>
 								</div>
-								<div class="details">
-									<a href="#">
-										<h4>
-											Learn Designing
-										</h4>
-									</a>
+								<div class="contact-details">
+									<h5> {{config('about.address_about')}} </h5>
 									<p>
-										When television was young, there was a hugely popular show based on the still popular fictional characte										
-									</p>
-								</div>
-							</div>	
-							<div class="single-popular-carusel">
-								<div class="thumb-wrap relative">
-									<div class="thumb relative">
-										<div class="overlay overlay-bg"></div>	
-										<img class="img-fluid" src="{{asset('/frontend')}}/img/p2.jpg" alt="">
-									</div>
-									<div class="meta d-flex justify-content-between">
-										<p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
-										<h4>$150</h4>
-									</div>									
-								</div>
-								<div class="details">
-									<a href="#">
-										<h4>
-											Learn React js beginners
-										</h4>
-									</a>
-									<p>
-										When television was young, there was a hugely popular show based on the still popular fictional characte										
-									</p>
-								</div>
-							</div>	
-							<div class="single-popular-carusel">
-								<div class="thumb-wrap relative">
-									<div class="thumb relative">
-										<div class="overlay overlay-bg"></div>	
-										<img class="img-fluid" src="{{asset('/frontend')}}/img/p3.jpg" alt="">
-									</div>
-									<div class="meta d-flex justify-content-between">
-										<p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
-										<h4>$150</h4>
-									</div>									
-								</div>
-								<div class="details">
-									<a href="#">
-										<h4>
-											Learn Photography
-										</h4>
-									</a>
-									<p>
-										When television was young, there was a hugely popular show based on the still popular fictional characte										
-									</p>
-								</div>
-							</div>	
-							<div class="single-popular-carusel">
-								<div class="thumb-wrap relative">
-									<div class="thumb relative">
-										<div class="overlay overlay-bg"></div>	
-										<img class="img-fluid" src="{{asset('/frontend')}}/img/p4.jpg" alt="">
-									</div>
-									<div class="meta d-flex justify-content-between">
-										<p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
-										<h4>$150</h4>
-									</div>									
-								</div>
-								<div class="details">
-									<a href="#">
-										<h4>
-											Learn Surveying
-										</h4>
-									</a>
-									<p>
-										When television was young, there was a hugely popular show based on the still popular fictional characte										
+									{{config('about.p_address')}}
 									</p>
 								</div>
 							</div>
-							<div class="single-popular-carusel">
-								<div class="thumb-wrap relative">
-									<div class="thumb relative">
-										<div class="overlay overlay-bg"></div>	
-										<img class="img-fluid" src="{{asset('/frontend')}}/img/p1.jpg" alt="">
+							<div class="single-contact-address d-flex flex-row">
+								<div class="icon">
+									<span class="lnr lnr-phone-handset"></span>
+								</div>
+								<div class="contact-details">
+									<h5>{{config('barber.telpon')}}</h5>
+									<p> {{config('about.p_telpon')}} </p>
+								</div>
+							</div>
+							<div class="single-contact-address d-flex flex-row">
+								<div class="icon">
+									<span class="lnr lnr-envelope"></span>
+								</div>
+								<div class="contact-details">
+									<h5>{{config('about.email_about')}}</h5>
+									<p> {{config('about.p_email')}} </p>
+								</div>
+							</div>														
+						</div>
+						<div class="col-lg-8">
+							<form class="form-area contact-form text-right" id="myForm" action="#" method="post">
+							 {{csrf_field()}}
+								<div class="row">	
+									<div class="col-lg-6 form-group">
+										<input name="name" placeholder="Masukan nama anda" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukan nama anda'" class="common-input mb-20 form-control" required="" type="text">
+									
+										<input name="email" placeholder="Masukan alamat email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukan alamat email'" class="common-input mb-20 form-control" required="" type="email">
+
+										<input name="subject" placeholder="Masukan subjek" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukan subjek'" class="common-input mb-20 form-control" required="" type="text">
 									</div>
-									<div class="meta d-flex justify-content-between">
-										<p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
-										<h4>$150</h4>
-									</div>									
-								</div>
-								<div class="details">
-									<a href="#">
-										<h4>
-											Learn Designing
-										</h4>
-									</a>
-									<p>
-										When television was young, there was a hugely popular show based on the still popular fictional characte										
-									</p>
-								</div>
-							</div>	
-							<div class="single-popular-carusel">
-								<div class="thumb-wrap relative">
-									<div class="thumb relative">
-										<div class="overlay overlay-bg"></div>	
-										<img class="img-fluid" src="{{asset('/frontend')}}/img/p2.jpg" alt="">
+									<div class="col-lg-6 form-group">
+										<textarea class="common-textarea form-control" name="message" placeholder="Masukan pesan" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukan pesan'" required=""></textarea>				
 									</div>
-									<div class="meta d-flex justify-content-between">
-										<p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
-										<h4>$150</h4>
-									</div>									
-								</div>
-								<div class="details">
-									<a href="#">
-										<h4>
-											Learn React js beginners
-										</h4>
-									</a>
-									<p>
-										When television was young, there was a hugely popular show based on the still popular fictional characte										
-									</p>
-								</div>
-							</div>	
-							<div class="single-popular-carusel">
-								<div class="thumb-wrap relative">
-									<div class="thumb relative">
-										<div class="overlay overlay-bg"></div>	
-										<img class="img-fluid" src="{{asset('/frontend')}}/img/p3.jpg" alt="">
+									<div class="col-lg-12">
+										<div class="alert-msg" style="text-align: left;"></div>
+										<button class="genric-btn primary" style="float: right;">Kirim Pesan</button>											
 									</div>
-									<div class="meta d-flex justify-content-between">
-										<p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
-										<h4>$150</h4>
-									</div>									
 								</div>
-								<div class="details">
-									<a href="#">
-										<h4>
-											Learn Photography
-										</h4>
-									</a>
-									<p>
-										When television was young, there was a hugely popular show based on the still popular fictional characte										
-									</p>
-								</div>
-							</div>	
-							<div class="single-popular-carusel">
-								<div class="thumb-wrap relative">
-									<div class="thumb relative">
-										<div class="overlay overlay-bg"></div>	
-										<img class="img-fluid" src="{{asset('/frontend')}}/img/p4.jpg" alt="">
-									</div>
-									<div class="meta d-flex justify-content-between">
-										<p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
-										<h4>$150</h4>
-									</div>									
-								</div>
-								<div class="details">
-									<a href="#">
-										<h4>
-											Learn Surveying
-										</h4>
-									</a>
-									<p>
-										When television was young, there was a hugely popular show based on the still popular fictional characte										
-									</p>
-								</div>
-							</div>							
+							</form>	
 						</div>
 					</div>
 				</div>	

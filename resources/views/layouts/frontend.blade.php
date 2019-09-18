@@ -14,10 +14,10 @@
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title> {{config('barber.title_beranda')}} </title>
-
+		@yield('head')
+        
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-		// toster
+		<!-- // toster -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">	
 		<!--
 			CSS
@@ -46,8 +46,8 @@
 			  				</ul>			
 			  			</div>
 			  			<div class="col-lg-6 col-sm-6 col-4 header-top-right no-padding">
-			  				<a href="tel:+953 012 3654 896"><span class="lnr lnr-phone-handset"></span> <span class="text">+6282111524410</span></a>
-			  				<a href="mailto:support@colorlib.com"><span class="lnr lnr-envelope"></span> <span class="text">Husin@gmail.co.id/KangBarber</span></a>			
+			  				<a href="#"><span class="lnr lnr-phone-handset"></span> <span class="text"> {{config('barber.telpon')}} </span></a>
+			  				<a href="#"><span class="lnr lnr-envelope"></span> <span class="text">{{config('barber.email')}}</span></a>			
 			  			</div>
 			  		</div>			  					
 	  			</div>
@@ -60,8 +60,8 @@
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
 			          <li><a href="/">Beranda</a></li>		          		          
-					  <li><a href="#">Tentang Kami</a></li>
-					  <li><a href="#">Admin</a></li>
+					  <li><a href="/about">Tentang Kami</a></li>
+					  <li><a href="#">Login</a></li>
 			        </ul>
 			      </nav><!-- #nav-menu-container -->		    		
 		    	</div>

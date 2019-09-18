@@ -36,7 +36,7 @@
 											</tr>
 										</thead>
 			 							<tbody>
-                 /***/
+             <!-- ** -->
                       <tr>
                          <td>1</td>
                         <td> 
@@ -46,7 +46,7 @@
                         <a href="#" class="btn btn-warning btn-sm float-right"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>
                         </td>
                       </tr>
-                 /***/
+           <!-- ** -->
 										</tbody>
 									</table>
               

@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('sites.home');
 });
+ Route::get('/about', 'SiteController@about');
+ Route::get('/download', 'SiteController@download');
