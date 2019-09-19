@@ -11,20 +11,20 @@
             
             <div class="panel">
              <div class="panel-heading">
-               <h3 class="panel-title"> <i class="lnr lnr-bookmark"></i> SELAMAT DATANG </h3>
+               <h3 class="panel-title"> <i class="lnr lnr-bookmark"></i> SELAMAT DATANG ADMIN </h3>
               </div>
                <div class="panel-body">
                  <table class="table table-bordered">
                   <thead>
                      <tr>
-                       <th>Test</th>
+                       <th>BANNER</th>
+                       <th>LOOKBOOK</th>
                      </tr> 
                   </thead>
                          <tbody>
                       <tr>
-                         <td>
-                           satu
-                         </td>
+                         <td>satu </td>
+                         <td>dua</td>
                       </tr>
                              </tbody>
                             </table>
@@ -37,7 +37,7 @@
 					    <span class="icon"><i class="fa fa-users"></i></span>
 						 <p>
 						  <span class="number">1</span>
-						  <span class="title">TOTAL </span>
+						  <span class="title">TOTAL BANNER</span>
 					     </p>
 					  </div>
                     </div>
@@ -48,7 +48,7 @@
 					    <span class="icon"><i class="fa fa-user"></i></span>
 						 <p>
 						  <span class="number"> 2</span>
-						  <span class="title">TOTAL </span>
+						  <span class="title">TOTAL LOOKBOOK</span>
 					     </p>
 					  </div>
                     </div>
@@ -59,5 +59,14 @@
       </div>
   
    
+@stop
 
+@section('footer')
+    <script>
+       $(document).ready(function() {
+          $('#datatable').DataTable()
+
+    });
+
+    </script>
 @stop

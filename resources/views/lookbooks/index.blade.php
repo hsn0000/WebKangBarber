@@ -8,7 +8,7 @@
           <div class="col-md-12">
            <div class="panel">
 						<div class="panel-heading">
-              <h3 class="panel-title"><i class="lnr lnr-user"></i> BOOKING KANG BARBER</h3>
+              <h3 class="panel-title"><i class="lnr lnr-user"></i> <b>LOOKBOOK</b></h3>
              @if(session('sukses'))
 			      	<div class="aler alert-success" role="alert">
 				        {{session('sukses')}}
@@ -33,16 +33,17 @@
 										<thead class="thead-info">
 											<tr>
                          <th>LOOKBOOK</th>
+                         <th>DESKRIPSI</th>
+                         <th>AKSI</th>
 											</tr>
 										</thead>
 			 							<tbody>
              <!-- ** -->
                       <tr>
                          <td>1</td>
+                         <td>2</td>
                         <td> 
-                          <a href="#" class="btn btn-danger btn-sm ml-5 float-right delete" siswa-id=""><i class="lnr lnr-trash"> Hapus</i></a>
-                        </td>
-                        <td>
+                        <a href="#" class="btn btn-danger btn-sm ml-5 float-right delete" siswa-id=""><i class="lnr lnr-trash"> Hapus</i></a>
                         <a href="#" class="btn btn-warning btn-sm float-right"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>
                         </td>
                       </tr>

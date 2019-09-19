@@ -10,4 +10,19 @@ class AuthController extends Controller
     {
         return view('Auths.login');
     }
+
+    public function loginAdmin()
+    {
+        return view('dashboard.index');
+    }
+
+    public function register()
+    {
+        return view('Auths.register');
+    }
+
+    public function logout()
+    {
+        return view('Auths.login');
+    }
 }

@@ -6,7 +6,7 @@ return [
    'h1_download' => 'Download aplikasi mobile link, di bawah ini',
    'h4_download' => '',
 
-   'image_banner_url' => '/frontend/img/gallery/g7.jpg',
+   'image_banner_url' => '/frontend/img/banner13.jpg',
 
    'img_url1' => '/frontend/img/gallery/g1.jpg',
    'img_url2' => '/frontend/img/gallery/g2.jpg',

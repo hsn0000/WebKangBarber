@@ -2,6 +2,7 @@
    return [
 
      // login 
+'title_register' => '<title>Register</title>',
 'title_login' => '<title>Login</title>',
 'image_background' => '/frontend/img/berita/b1.jpeg',
 

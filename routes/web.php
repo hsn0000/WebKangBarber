@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('sites.home');
 });
@@ -18,6 +20,9 @@ Route::get('/', function () {
  Route::get('/download', 'SiteController@download');
 
  Route::get('/login', 'AuthController@login');
+ Route::post('/loginAdmin', 'AuthController@loginAdmin');
+ Route::get('/register', 'AuthController@register');
+ Route::get('/logout','AuthController@logout');
 
  Route::get('/dashboard', 'DashboardController@index');
 
