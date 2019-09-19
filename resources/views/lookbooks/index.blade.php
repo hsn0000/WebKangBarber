@@ -8,7 +8,7 @@
           <div class="col-md-12">
            <div class="panel">
 						<div class="panel-heading">
-              <h3 class="panel-title"><i class="lnr lnr-user"></i> BokingKangBarber</h3>
+              <h3 class="panel-title"><i class="lnr lnr-user"></i> BOOKING KANG BARBER</h3>
              @if(session('sukses'))
 			      	<div class="aler alert-success" role="alert">
 				        {{session('sukses')}}
@@ -25,14 +25,14 @@
 			    	</div>
 			    	@endif
               <div class="right">
-              <button class="btn" data-toggle="modal" data-target="#exampleModal" id="tambahBanner" ><i class="lnr lnr-plus-circle" >Tambah Banner</i></button>
+              <button class="btn" data-toggle="modal" data-target="#exampleModal" id="tambahBanner" ><i class="lnr lnr-plus-circle" >Tambah eviden lookbook</i></button>
                </div>
 							</div>
 								<div class="panel-body">
 									<table class="table table-hover" id="datatable">
 										<thead class="thead-info">
 											<tr>
-                         <th>BANNNER</th>
+                         <th>LOOKBOOK</th>
 											</tr>
 										</thead>
 			 							<tbody>
@@ -40,7 +40,7 @@
                       <tr>
                          <td>1</td>
                         <td> 
-                          <a href="#" class="btn btn-danger btn-sm ml-5 float-right delete" siswa-id="{{$siswa->id}}"><i class="lnr lnr-trash"> Hapus</i></a>
+                          <a href="#" class="btn btn-danger btn-sm ml-5 float-right delete" siswa-id=""><i class="lnr lnr-trash"> Hapus</i></a>
                         </td>
                         <td>
                         <a href="#" class="btn btn-warning btn-sm float-right"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>
@@ -64,7 +64,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"><i class="lnr lnr-plus-circle"></i> TAMBAH BANNER</h5>
+            <h5 class="modal-title" id="exampleModalLabel"><i class="lnr lnr-plus-circle"></i> TAMBAH EVIDEN LOOKBOOK</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>

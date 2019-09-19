@@ -1,6 +1,10 @@
 <?php
    return [
 
+     // login 
+'title_login' => '<title>Login</title>',
+'image_background' => '/frontend/img/berita/b1.jpeg',
+
    // info
  'telpon' => '+6282111524410',
  'email' => 'Husin@gmail.com/KangBarber',
@@ -10,7 +14,6 @@
  'instagram_url' => 'https://instagram.com',
  // title
  'title_beranda' => '<title>Beranda</title>',
-
 // Home page
  'logo_url' => '/frontend/img/logo4.png',
  'image_banner_url' => '/frontend/img/banner1.jpg',

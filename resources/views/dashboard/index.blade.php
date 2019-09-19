@@ -11,13 +11,13 @@
             
             <div class="panel">
              <div class="panel-heading">
-               <h3 class="panel-title"> <i class="lnr lnr-bookmark"></i> RANKING </h3>
+               <h3 class="panel-title"> <i class="lnr lnr-bookmark"></i> SELAMAT DATANG </h3>
               </div>
                <div class="panel-body">
                  <table class="table table-bordered">
                   <thead>
                      <tr>
-                       <th>RANKING</th>
+                       <th>Test</th>
                      </tr> 
                   </thead>
                          <tbody>
@@ -37,7 +37,7 @@
 					    <span class="icon"><i class="fa fa-users"></i></span>
 						 <p>
 						  <span class="number">1</span>
-						  <span class="title">TOTAL SISWA</span>
+						  <span class="title">TOTAL </span>
 					     </p>
 					  </div>
                     </div>
@@ -48,7 +48,7 @@
 					    <span class="icon"><i class="fa fa-user"></i></span>
 						 <p>
 						  <span class="number"> 2</span>
-						  <span class="title">TOTAL GURU</span>
+						  <span class="title">TOTAL </span>
 					     </p>
 					  </div>
                     </div>

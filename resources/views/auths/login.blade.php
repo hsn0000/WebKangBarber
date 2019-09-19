@@ -2,7 +2,7 @@
 <html lang="en" class="fullscreen-bg">
 
 <head>
-	<title>Login | m Husin</title>
+	{!! config('barber.title_login') !!}
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -30,10 +30,10 @@
 					<div class="left">
 						<div class="content">
 							<div class="header">
-								<div class="logo text-center img-circle"><img src="{{asset('admin/hlog.png')}}" alt="Klorofil Logo" width="200" height="90"></div>
-								<p class="lead">Masuk ke akun anda <i class="lnr lnr-user"></i></p>
+								<div class="logo text-center img-circle"><img src="{{asset('frontend/img/logo1.png')}}" alt="Klorofil Logo" width="230" height="160"></div>
+								<p class="lead">Login Admin<i class="lnr lnr-user"></i></p>
 							</div>
-                            <form class="form-auth-small" action="/postLogin" method="post">
+                            <form class="form-auth-small" action="/loginAdmin" method="post">
                             {{csrf_field()}}
 								<div class="form-group">
 									<label for="signin-email" class="control-label sr-only">Email</label>
@@ -56,13 +56,12 @@
 							</form>
 						</div>
 					</div>
-					<div class="right">
-						<div class="overlay"></div>
+					<div class="right" style="Background: url('{{config('barber.image_background')}}')" >
 						<div class="content text">
-                            <h1 class="heading"> Selamat datang di website ini... <i class="lnr lnr-thumbs-up"></i> </h1>
+                            <h1 class="heading"> Selamat datang <i class="lnr lnr-thumbs-up"></i> </h1>
 							<hr>
 							<br>
-							<p>copyright@Husin04</p>
+							<p>@KangBarber.co.id</p>
 							<hr>
 						</div>
 					</div>

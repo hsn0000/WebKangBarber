@@ -61,7 +61,7 @@
 			        <ul class="nav-menu">
 			          <li><a href="/">Beranda</a></li>		          		          
 					  <li><a href="/about">Tentang Kami</a></li>
-					  <li><a href="#">Login</a></li>
+					  <li><a href="/login">Login</a></li>
 			        </ul>
 			      </nav><!-- #nav-menu-container -->		    		
 		    	</div>
