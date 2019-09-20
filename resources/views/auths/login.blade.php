@@ -32,10 +32,8 @@
 						<div class="content">
 							<div class="header">
 								<div class="logo text-center img-circle"><img src="{{asset('frontend/img/logo1.png')}}" alt="Logo Kang Barber" width="250" height=""></div>
-								<p class="lead">Login Admin<i class="lnr lnr-user"></i></p>
+								<p class="lead"> <b> Login Admin<i class="lnr lnr-user"></i></b></p>
 							</div>
-                            <form class="form-auth-small" action="" method="">
-                            {{csrf_field()}}
 								<div class="form-group">
 									<label for="u_email" class="control-label sr-only"></label>
 									<input name="u_email" type="email" class="form-control" id="u_email"  placeholder="Masukan email" required>
@@ -46,7 +44,6 @@
 								</div>
 								<button type="submit" class="btn btn-primary btn-lg btn-block" onclick="loginUser();">MASUK</button> <br>
 							    <p>Buat akun admin <a href="/register" class=""><span>Registrasi</span></a></p>
-							</form>
 						</div>
 					</div>
 					<div class="right" style="Background: url('{{config('barber.image_background')}}')" >
@@ -66,7 +63,11 @@
 	<!-- END WRAPPER -->
 
 
-	
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"> </script>
+    <script src="{{asset('admin/assets/scripts/relog.js')}}"></script>
+
 <!-- SDK FireBase -->
 		<!-- The core Firebase JS SDK is always required and must be listed first -->
 			<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase.js"></script>
@@ -85,18 +86,43 @@
 		};
 		// Initialize Firebase
 		firebase.initializeApp(firebaseConfig);
+		firebase.auth().onAuthStateChanged(function(user) {
+			if (user) {
+			
+				var uid = user.uid;
+				alert(uid);
+				window.location.href ="{{url('/loginAdmin')}}"
+				// ...
+			} else {
+				// User is signed out.
+				// ...
+			}
+		});
+
+			function loginUser() {
+
+var email=document.getElementById("u_email").value;
+var password=document.getElementById("u_password").value;
+
+firebase.auth().signInWithEmailAndPassword(email,password).then(function() {
+
+
+    }).catch(function(error) {
+
+		var errorMessage=error.message;
+		alert(errorMessage);
+
+ });
+
+}
 		</script>
 <!-- End -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"> </script>
-
-    <script src="{{asset('admin/assets/scripts/relog.js')}}"></script>
-
+   
 	
 	<script>
-	   @if(Session::has('sukses'))
-	      toastr.success("{{Session::get('sukses')}}", "Selamat")
-	   @endif
+	//    @if(Session::has('sukses'))
+	//       toastr.success("{{Session::get('sukses')}}", "Selamat")
+	//    @endif
 	</script>
 
 </body>

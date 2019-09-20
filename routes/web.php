@@ -20,7 +20,7 @@ Route::get('/', function () {
  Route::get('/download', 'SiteController@download');
 
  Route::get('/login', 'AuthController@login');
- Route::post('/loginAdmin', 'AuthController@loginAdmin');
+ Route::get('/loginAdmin', 'AuthController@loginAdmin');
  Route::get('/register', 'AuthController@register');
  Route::get('/logout','AuthController@logout');
 

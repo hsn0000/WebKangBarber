@@ -8,6 +8,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<!-- TOASTER -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+	<!-- switalert -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<!-- VENDOR CSS -->
 	<link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" href="{{asset('admin/assets/vendor/font-awesome/css/font-awesome.min.css')}}">
@@ -28,19 +30,12 @@
 		<div class="vertical-align-wrap">
 			<div class="vertical-align-middle">
 				<div class="auth-box ">
-					<div class="left" style="Background:#000000;">
+					<div class="left" style="Background: url('{{config('barber.image_background_register')}}')">
 						<div class="content">
 							<div class="header">
-							@if(session('sukses'))
-			      	<div class="aler alert-success" role="alert">
-				        {{session('sukses')}}
-			      	</div>
-					  @endif
-								<div class="logo text-center img-circle"><img src="{{asset('frontend/img/logo4.png')}}" alt="Logo Kang Barber" width="250" height=""></div>
-								<p class="lead" style="color: #F8F8FF;">Registrasi Admin <i class="lnr lnr-user"></i></p>
+								<div class="logo text-center img-circle"><img src="{{asset('frontend/img/logo1.png')}}" alt="Logo Kang Barber" width="280" height="75"></div>
+								<p class="lead" style="color: #Ffffff;"> <b>Registrasi Admin <i class="lnr lnr-user"></i></b></p>
 							</div>
-                            <form class="form-auth-small" action="" enctype="multipart/form-data" method="post">
-                            {{csrf_field()}}
 								<div class="form-group">
 									<label for="userEmail" class="control-label sr-only"></label>
 									<input name="userEmail" type="email" class="form-control" id="userEmail"  placeholder="Masukan Email" required>
@@ -59,11 +54,10 @@
 										<span>Ingatkan saya</span>
 									</label>
 								</div> -->
-								<button type="button" class="btn btn-info btn-lg btn-block" onclick="createUser()">REGISTER</button> <br>
+								<button type="button" class="btn btn-primary btn-lg btn-block" onclick="createUser();">REGISTER</button> <br>
 								<!-- <div class="bottom">
 									<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">lupa password?</a></span>
 								</div> -->
-							</form>
 						</div>
                     </div>
                     <div class="right" style="Background: url('{{asset('frontend/img/banner5.jpeg')}}')" >
@@ -81,6 +75,8 @@
 
 
 
+ <!-- swit alert -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 	
 <!-- SDK FireBase -->
 			<!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -100,17 +96,76 @@
 		};
 		// Initialize Firebase
 		firebase.initializeApp(firebaseConfig);
-		</script>
+
+		// register
+
+function createUser() {
+
+var email=document.getElementById("userEmail").value;
+var password=document.getElementById("userPassword").value;
+var confirmPassword=document.getElementById("confirmPassword").value;
+
+console.log(password);
+console.log(confirmPassword);
+
+if(password==confirmPassword)
+ {
+
+	firebase.auth().createUserWithEmailAndPassword(email,password).then(function() {
+	  
+	
+		}).catch(function(error) {
+
+			var errorMessage=error.message;
+				Swal.fire({
+				title: 'mohon isi email dan password terlebih dahulu',
+				animation: false,
+				customClass: {
+					popup: 'animated tada'
+				}
+			})
+		})
+		
+	// window.location.href="/login";
+			firebase.auth().onAuthStateChanged(function(user) {
+				if (user) {
+					Swal.fire(
+					'Selamat!',
+					'Registrasi Berhasil!',
+					'success'
+				)
+					firebase.auth().signOut();
+					window.location.href = "{{url('/login')}}"
+					// ...
+				} else {
+					// User is signed out.
+					
+				}
+			});
+
+		}else{
+
+		// alert
+		Swal.fire({
+			type: 'error',
+			title: 'Oops...',
+			text: 'password harus sama',
+		})
+
+		}
+
+	}
+
+	</script>
 <!-- End -->
-    <script src="{{asset('admin/assets/scripts/relog.js')}}"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"> </script>
-   
  
-	<script>
-	   @if(Session::has('sukses'))
-	      toastr.success("{{Session::get('sukses')}}", "Selamat")
-	   @endif
+   
+	<script>	
+		$(document).ready(function() { 
+		@if(Session::has('sukses'))
+			toastr.success("{{Session::get('sukses')}}", "Selamat")
+		@endif
+		}
 	</script>
 
 

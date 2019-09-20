@@ -72,6 +72,7 @@
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"> </script>
 	<script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
 
@@ -93,8 +94,42 @@
 		};
 		// Initialize Firebase
 		firebase.initializeApp(firebaseConfig);
+		firebase.auth().onAuthStateChanged(function(user) {
+			if (user) {
+			
+				// ...
+			} else {
+				// User is signed out.
+				window.location.href ="{{url('/login')}}"
+				// ...
+			}
+			});
+		 function logout(){
+			Swal.fire({
+				title: 'Apa anda yakin?',
+				text: "Ingin keluar!",
+				type: 'danger',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yakin!'
+			}).then((result) => {
+				if (result.value) {
+					Swal.fire(
+					'Berhasil',
+					'Sampai jumpa lagi',
+					'success'
+					)	
+
+			} firebase.auth().signOut();
+		})
+		
+				// Sign-out successful.
+	}
+
 		</script>
-<!-- End -->
+// <!-- End -->
+
  
 
 

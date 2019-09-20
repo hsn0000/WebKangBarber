@@ -13,7 +13,7 @@
 							 <span> Admin </span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
 								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-								<li><a href="/logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+								<li><a onclick="logout()"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 							</ul>
 						</li>
 					</ul>
