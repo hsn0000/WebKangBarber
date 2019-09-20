@@ -6,7 +6,7 @@
 'title_login' => '<title>Login</title>',
 'image_background' => '/frontend/img/berita/b1.jpeg',
  // register
- 'image_background_register' => '/frontend/img/model/m2.jpg',
+ 'image_background_register' => '/frontend/img/berita/g12.jpg',
 
    // info
  'telpon' => '+6282111524410',

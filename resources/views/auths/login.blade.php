@@ -8,6 +8,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<!-- TOASTER -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+	<!-- switalert -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<!-- VENDOR CSS -->
 	<link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" href="{{asset('admin/assets/vendor/font-awesome/css/font-awesome.min.css')}}">
@@ -63,7 +65,6 @@
 	<!-- END WRAPPER -->
 
 
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"> </script>
     <script src="{{asset('admin/assets/scripts/relog.js')}}"></script>
@@ -90,7 +91,11 @@
 			if (user) {
 			
 				var uid = user.uid;
-				alert(uid);
+				Swal.fire(
+					'Selamat!',
+					'Registrasi Berhasil!',
+					'success'
+				)
 				window.location.href ="{{url('/loginAdmin')}}"
 				// ...
 			} else {
@@ -99,22 +104,30 @@
 			}
 		});
 
-			function loginUser() {
+ function loginUser() {
 
-var email=document.getElementById("u_email").value;
-var password=document.getElementById("u_password").value;
+	var email=document.getElementById("u_email").value;
+	var password=document.getElementById("u_password").value;
 
-firebase.auth().signInWithEmailAndPassword(email,password).then(function() {
+	firebase.auth().signInWithEmailAndPassword(email,password).then(function() {
 
 
     }).catch(function(error) {
 
-		var errorMessage=error.message;
-		alert(errorMessage);
+			Swal.fire({
+					title: 'pastikan email dan password anda benar !',
+					animation: false,
+					customClass: {
+					popup: 'animated tada'
+			 }
+	     })
 
- });
+    });
+	
+   
 
-}
+
+ }
 		</script>
 <!-- End -->
    

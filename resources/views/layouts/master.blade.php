@@ -39,29 +39,13 @@
 	<div id="wrapper">
 		<!-- NAVBAR -->
 	@include('layouts.includes._navbar')
-		<!-- END NAVBAR -->
-		<!-- LEFT SIDEBAR -->
+		<!-- SIDEBAR -->
 	@include('layouts.includes._sidebar')
-		<!-- END LEFT SIDEBAR -->
-		<!-- MAIN -->
+		
+
 	@yield('content')
 </div>
 							
-<!-- 		
-								<div class="panel-footer">
-									<div class="row">
-										<div class="col-md-6"><span class="panel-note"><i class="fa fa-clock-o"></i> Last 24 hours</span></div>
-									</div>
-								</div>
-							</div> --> -->
-			<!-- END RECENT PURCHASES -->
-		<!-- <footer>
-			<div class="container-fluid">
-				<p class="copyright">&copy; 2019 <a href="https://www.themeineed.com" target="_blank">Th</a>. All Rights Reserved.</p>
-			</div>
-		</footer> -->
-	<!-- </div> --> -->
-	<!-- END WRAPPER -->
 	<!-- Javascript -->
 	<script src="{{asset('admin/assets/vendor/jquery/jquery.min.js')}}"></script>
 	<script src="{{asset('admin/assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
@@ -71,7 +55,6 @@
     <script scr="{{asset('frontend/js/ckeditor.js')}}"></script>
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"> </script>
 	<script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
@@ -120,42 +103,16 @@
 					'Sampai jumpa lagi',
 					'success'
 					)	
-
-			} firebase.auth().signOut();
+				firebase.auth().signOut();
+			} 
 		})
 		
 				// Sign-out successful.
 	}
 
 		</script>
-// <!-- End -->
+ <!-- End -->
 
- 
-
-
-	<script>
-	   @if(Session::has('danger'))
-	      toastr.error("{{Session::get('danger')}}", "Berhasil")
-	   @endif
-	</script>
-
-   <script>
-	   @if(Session::has('sukses'))
-	      toastr.success("{{Session::get('sukses')}}", "Berhasil")
-	   @endif
-	</script>
-
-   <script>
-	   @if(Session::has('update'))
-	      toastr.warning("{{Session::get('update')}}", "Berhasil")
-	   @endif
-	</script>
-
-   <script>
-	   @if(Session::has('error'))
-	      toastr.error("{{Session::get('error')}}", "GAGAL!")
-	   @endif
-	</script>
 
 
 	@yield('footer')

@@ -54,7 +54,7 @@
 										<span>Ingatkan saya</span>
 									</label>
 								</div> -->
-								<button type="button" class="btn btn-primary btn-lg btn-block" onclick="createUser();">REGISTER</button> <br>
+								<button type="button" class="btn btn-info btn-lg btn-block" onclick="createUser();">REGISTER</button> <br>
 								<!-- <div class="bottom">
 									<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">lupa password?</a></span>
 								</div> -->
@@ -108,17 +108,15 @@ var confirmPassword=document.getElementById("confirmPassword").value;
 console.log(password);
 console.log(confirmPassword);
 
-if(password==confirmPassword)
- {
+if(password==confirmPassword)  {
 
 	firebase.auth().createUserWithEmailAndPassword(email,password).then(function() {
 	  
-	
 		}).catch(function(error) {
 
 			var errorMessage=error.message;
 				Swal.fire({
-				title: 'mohon isi email dan password terlebih dahulu',
+				title: 'mohon isi email dan password terlebih dahulu !',
 				animation: false,
 				customClass: {
 					popup: 'animated tada'
@@ -131,7 +129,7 @@ if(password==confirmPassword)
 				if (user) {
 					Swal.fire(
 					'Selamat!',
-					'Registrasi Berhasil!',
+					'Registrasi Berhasil !',
 					'success'
 				)
 					firebase.auth().signOut();
@@ -146,11 +144,11 @@ if(password==confirmPassword)
 		}else{
 
 		// alert
-		Swal.fire({
-			type: 'error',
-			title: 'Oops...',
-			text: 'password harus sama',
-		})
+			Swal.fire({
+				type: 'error',
+				title: 'Oops...',
+				text: 'password harus sama !',
+			})
 
 		}
 
@@ -159,14 +157,6 @@ if(password==confirmPassword)
 	</script>
 <!-- End -->
  
-   
-	<script>	
-		$(document).ready(function() { 
-		@if(Session::has('sukses'))
-			toastr.success("{{Session::get('sukses')}}", "Selamat")
-		@endif
-		}
-	</script>
 
 
 </body>
