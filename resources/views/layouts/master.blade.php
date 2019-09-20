@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-	<title>Dashboard | Klorofil - Free Bootstrap Dashboard Template</title>
+	@yield('head')
+	
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -73,7 +74,29 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"> </script>
 	<script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
-	
+
+<!-- SDK FireBase -->
+			<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase.js"></script>
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+			https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script>
+		// Your web app's Firebase configuration
+		var firebaseConfig = {
+			apiKey: "AIzaSyAZw3MrxGhyl7KOUfEn48pjuDU8rABTT8A",
+			authDomain: "bokingkangbarers.firebaseapp.com",
+			databaseURL: "https://bokingkangbarers.firebaseio.com",
+			projectId: "bokingkangbarers",
+			storageBucket: "bokingkangbarers.appspot.com",
+			messagingSenderId: "65666793632",
+			appId: "1:65666793632:web:84128b2cf66b7a0d0909c5"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		</script>
+<!-- End -->
+ 
+
 
 	<script>
 	   @if(Session::has('danger'))
