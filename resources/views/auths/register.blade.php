@@ -16,25 +16,27 @@
 	<link rel="stylesheet" href="{{asset('/admin/assets/vendor/linearicons/style.css')}}">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="{{asset('admin/assets/css/main.css')}}">
+	<!-- custom -->
+	<link rel="stylesheet" href="{{asset('admin/assets/css/custom.css')}}">
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
 	<link rel="stylesheet" href="{{asset('admin/assets/css/demo.css')}}">
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
-	<link rel="icon" type="image/png" sizes="96x96" href="{{asset('admin/assets/img/favicon.png')}}">
+	<link rel="icon" type="image/png" sizes="96x96" href="{{asset('admin/assets/img/logo3.jpeg')}}">
 </head>
 
 <body>
 	<!-- WRAPPER -->
 	<div id="wrapper">
-		<div class="vertical-align-wrap">
+		<div class="vertical-align-wrap" id="container-div-wrap">
 			<div class="vertical-align-middle">
 				<div class="auth-box ">
-					<div class="left" style="Background: url('{{config('barber.image_background_register')}}')">
+					<div class="left" style="Background-color: #FFFFE0;">
 						<div class="content">
 							<div class="header">
 								<div class="logo text-center img-circle"><img src="{{asset('frontend/img/logo1.png')}}" alt="Logo Kang Barber" width="280" height="75"></div>
-								<p class="lead" style="color: #Ffffff;"> <b>Registrasi Admin <i class="lnr lnr-user"></i></b></p>
+								<p class="lead" style="color:  	#87CEFA;"> <b>Registrasi Admin <i class="lnr lnr-user"></i></b></p>
 							</div>
 								<div class="form-group">
 									<label for="userEmail" class="control-label sr-only"></label>
@@ -60,7 +62,7 @@
 								</div> -->
 						</div>
                     </div>
-                    <div class="right" style="Background: url('{{asset('frontend/img/banner5.jpeg')}}')" >
+                    <div class="right" style="Background: url('{{asset('frontend/img/banner11.jpg')}}')" >
 						<div class="content text">
 							<h4>@KangBarber.co.id</h4>
 							<hr>

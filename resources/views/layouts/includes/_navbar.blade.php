@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
-				<a href="#"><img src="{{asset('frontend/img/logo4.png')}}" alt="Klorofil Logo" class="img-responsive logo img-circle" width="75"></a>
+				<a href="#"><img src="{{asset('frontend/img/logo4.png')}}" alt="Logo Kang Barber" class="img-responsive logo img-circle" width="75"></a>
 			</div>
 			<div class="container-fluid">
 				<div class="navbar-btn">

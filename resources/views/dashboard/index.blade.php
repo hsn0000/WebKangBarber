@@ -34,7 +34,7 @@
             <!-- Total Siswa -->
                    <div class="col-md-3">
 					  <div class="metric">
-					    <span class="icon"><i class="fa fa-users"></i></span>
+					    <span class="icon"><i class="lnr lnr-file-empty"></i></span>
 						 <p>
 						  <span class="number">1</span>
 						  <span class="title">TOTAL BANNER</span>
@@ -45,7 +45,7 @@
 
             <div class="col-md-3">
 					  <div class="metric">
-					    <span class="icon"><i class="fa fa-user"></i></span>
+					    <span class="icon"><i class="lnr lnr-dice"></i></span>
 						 <p>
 						  <span class="number"> 2</span>
 						  <span class="title">TOTAL LOOKBOOK</span>

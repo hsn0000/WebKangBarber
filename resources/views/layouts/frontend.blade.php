@@ -59,9 +59,9 @@
 			      </div>
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
-			          <li><a href="/">Beranda</a></li>		          		          
-					  <li><a href="/about">Tentang Kami</a></li>
-					  <li><a href="/login">Login</a></li>
+			          <li><a href="{{url('/')}}">Beranda</a></li>		          		          
+					  <li><a href="{{url('/about')}}">Tentang Kami</a></li>
+					  <li><a href="{{url('/login')}}">Login</a></li>
 			        </ul>
 			      </nav><!-- #nav-menu-container -->		    		
 		    	</div>
@@ -102,7 +102,7 @@
 			<script src="{{asset('/frontend')}}/js/mail-script.js"></script>	
 			<script src="{{asset('/frontend')}}/js/main.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"> </script>
-			
+		@yield('footer')
 			
 	<script>
 	   @if(Session::has('sukses'))

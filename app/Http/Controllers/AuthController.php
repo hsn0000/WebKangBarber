@@ -8,7 +8,7 @@ class AuthController extends Controller
 {
     public function login()
     {
-        return view('Auths.login')->with('sukses','Akun anda berhasil di registrasi');
+        return view('Auths.login');
     }
 
     public function loginAdmin()
@@ -18,7 +18,7 @@ class AuthController extends Controller
 
     public function register()
     {
-        return view('Auths.register')->with('sukses','Akun anda berhasil di registrasi');
+        return view('Auths.register');
     }
 
     public function logout()

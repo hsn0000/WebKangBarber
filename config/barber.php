@@ -6,11 +6,12 @@
 'title_login' => '<title>Login</title>',
 'image_background' => '/frontend/img/berita/b1.jpeg',
  // register
- 'image_background_register' => '/frontend/img/berita/g12.jpg',
+ 'image_background_register' => '/frontend/img/berita/b3.jpg',
 
    // info
  'telpon' => '+6282111524410',
  'email' => 'Husin@gmail.com/KangBarber',
+ 'email2' => '@KangBarber',
  'facebook_url' => 'https://facebook.com',
  'twiter_url' => 'https://twiter.com',
  'google_url' => 'https://google.com',
