@@ -78,3 +78,12 @@ ul {
 #container-div-wrap {
   background-color: wheat; 
 }
+
+/* banner */
+
+#uploadProgress {
+
+  width: 80%;
+  margin-left: 10%;
+
+}

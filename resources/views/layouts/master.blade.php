@@ -13,6 +13,8 @@
 	<link rel="stylesheet" href="{{asset('admin/assets/vendor/linearicons/style.css')}}">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="{{asset('admin/assets/css/main.css')}}">
+	<!-- ms -->
+	<link rel="stylesheet" href="{{asset('admin/assets/css/master.css')}}">
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
 	<link rel="stylesheet" href="{{asset('admin/assets/css/demo.css')}}">
 	<!-- TOASTER -->
@@ -62,6 +64,7 @@
 <!-- SDK FireBase -->
 			<!-- The core Firebase JS SDK is always required and must be listed first -->
 		<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
 		<!-- TODO: Add SDKs for Firebase products that you want to use
 			https://firebase.google.com/docs/web/setup#available-libraries -->
 		<script>
@@ -77,6 +80,8 @@
 		};
 		// Initialize Firebase
 		firebase.initializeApp(firebaseConfig);
+
+		// auten
 		firebase.auth().onAuthStateChanged(function(user) {
 			if (user) {
 			
@@ -86,7 +91,8 @@
 				window.location.href ="{{url('/login')}}"
 				// ...
 			}
-			});
+		});
+		// logout
 		 function logout(){
 			Swal.fire({
 				title: 'Apa anda yakin?',
@@ -110,8 +116,13 @@
 				// Sign-out successful.
 	}
 
-		</script>
+ 
+
+	</script>
  <!-- End -->
+
+
+
 
 
 

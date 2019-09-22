@@ -55,31 +55,104 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"><i class="lnr lnr-plus-circle"></i> TAMBAH BANNER</h5>
+            <h5 class="modal-title" id="exampleModalLabel"><b><i class="lnr lnr-plus-circle"></i> TAMBAH BANNER</h5></b>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
           </div>
+      <form action="" enctype="multipart/form-data">
          <div class="modal-body">
-         <form action="#" method="post" enctype="multipart/form-data">
-           {{csrf_field()}}
-         
        <div class="form-group ">
-          <label for="textarea">Ambil Gambar</label>
-          <input type="file" name="avatar" class="form-control padding-bottom-30">
-     
+          <label for="avatar">Ambil Gambar</label>
+          <input type="file" value="upload" name="avatar" class="form-control padding-bottom-30" id="imageBanner">
+       </div>
+       <div class="form-group ">
+          <label for="deskripsi">Deskripsi</label>
+          <input name="deskripsi" type="text" class="form-control" id="deskBanner" 
+              aria-describedby="text" placeholder="Deskripsi" required>
        </div>
          </div>
+         <progress value="0" max="100" id="uploadProgress">0%</progress>
            <div class="modal-footer">
              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-              <button type="submit" class="btn btn-primary"><i class="lnr lnr-plus-circle"></i>Tambahkan</button>
-            </form>
+              <button type="button" class="btn btn-primary" onclick="upload();"><i class="lnr lnr-plus-circle"></i>Tambahkan</button>
           </div>
+        </form>
      </div>
+
 
 @stop
 
+
+
+
 @section('footer')
+
+   <script>
+       function upload() {
+
+            var image=document.getElementById("imageBanner").files[0];
+            var deskripsi = $('#deskBanner').val();
+            var imageName=image.name;
+            var storageRef=firebase.storage().ref('Banner/'+imageName);
+            var uploadTask=storageRef.put(image);
+
+            //Firestore
+            var firestore = firebase.firestore();
+            var docRef = firestore.doc("Banner/4sy3TgaJ9HZp2XAZNaTest ");
+            console.log("Quotes "+deskripsi);
+            docRef.set({
+                image:imageName,
+                deskripsi:deskripsi
+            }).then(function(){
+              Swal.fire(
+              'Berhasil!',
+              'Upload Banner Sukses!',
+              'success'
+            )
+                console.log("Quote Save");
+            }).catch(function(error){
+
+                Swal.fire({
+                  type: 'error',
+                  title: 'Oops...',
+                  text: 'Upload Banner Gagal!',
+              })
+                console.log("Got an error: ",error);
+            });
+
+
+            uploadTask.on('state_changed', function(snapshot) {
+              //
+            var progress=(snapshot.bytesTransferred/snapshot.totalBytes)*100;
+
+              console.log("upload is" + progress + "done");
+
+            },function(error) {
+
+            console.log(error.message);
+
+            },function() {
+            // handle upload suksesful on complete
+              Swal.fire(
+                'Berhasil!',
+                'Upload Banner Sukses!',
+                'success'
+              )
+            window.location.href = "{{url('/banner')}}"
+
+            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) { 
+            console.log(downloadURL);
+
+           })
+
+        })
+
+    }
+
+
+   </script>
+   
     <script>
        $(document).ready(function() {
           $('#datatable').DataTable()
