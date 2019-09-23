@@ -19,7 +19,7 @@
                </div>
 							</div>
 								<div class="panel-body">
-									<table class="table table-hover" id="datatable">
+									<table class="table table-hover" id="tablelookbook">
 										<thead class="thead-info">
 											<tr>
                          <th>LOOKBOOK</th>
@@ -28,16 +28,7 @@
 											</tr>
 										</thead>
 			 							<tbody>
-             <!-- ** -->
-                      <tr>
-                         <td>1</td>
-                         <td>2</td>
-                        <td> 
-                        <a href="#" class="btn btn-danger btn-sm ml-5 float-right delete" siswa-id=""><i class="lnr lnr-trash"> Hapus</i></a>
-                        <a href="#" class="btn btn-warning btn-sm float-right"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>
-                        </td>
-                      </tr>
-           <!-- ** -->
+             <!-- LOOP -->
 										</tbody>
 									</table>
               
@@ -88,71 +79,8 @@
 
 @section('footer')
 
-   <script>
-       function uploadBook() {
+ <script src="{{asset('admin/assets/scripts/lookbook.js')}}"></script>
 
-            var image=document.getElementById("imageLookbook").files[0];
-            var deskripsi = $('#deskLookbook').val();
-            var imageName=image.name;
-            var storageRef=firebase.storage().ref('Lookbook/'+imageName);
-            var uploadTask=storageRef.put(image);
-
-            //Firestore
-            var firestore = firebase.firestore();
-            var docRef = firestore.doc("Lookbook/4sy3TgaJ9HZp2XAZNaTest ");
-            console.log("Quotes "+deskripsi);
-            docRef.set({
-                image:imageName,
-                deskripsi:deskripsi
-            }).then(function(){
-              Swal.fire(
-              'Berhasil!',
-              'Upload LookBook Sukses!',
-              'success'
-            )
-                console.log("Quote Save");
-            }).catch(function(error){
-
-                Swal.fire({
-                  type: 'error',
-                  title: 'Oops...',
-                  text: 'Upload LookBook Gagal!',
-              })
-                console.log("Got an error: ",error);
-            });
-
-
-            uploadTask.on('state_changed', function(snapshot) {
-              //
-            var progress=(snapshot.bytesTransferred/snapshot.totalBytes)*100;
-
-              console.log("upload is" + progress + "done");
-
-            },function(error) {
-
-            console.log(error.message);
-
-            },function() {
-            // handle upload suksesful on complete
-            Swal.fire(
-                'Berhasil!',
-                'Upload Banner Sukses!',
-                'success'
-              )
-            window.location.href = "{{url('/lookbook')}}"
-
-            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) { 
-            console.log(downloadURL);
-
-           })
-
-        })
-
-    }
-
-
-   </script>
-   
     <script>
        $(document).ready(function() {
           $('#datatable').DataTable()

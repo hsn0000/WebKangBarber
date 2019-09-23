@@ -62,6 +62,7 @@
 	<script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
 
 <!-- SDK FireBase -->
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 			<!-- The core Firebase JS SDK is always required and must be listed first -->
 		<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
@@ -116,14 +117,8 @@
 				// Sign-out successful.
 	}
 
- 
-
 	</script>
  <!-- End -->
-
-
-
-
 
 
 	@yield('footer')
