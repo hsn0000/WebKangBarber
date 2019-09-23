@@ -1,7 +1,7 @@
     
 //   tambah banner
         function upload() {
-
+            
             var image=document.getElementById("imageBanner").files[0];
             var deskripsi = $('#deskBanner').val();
             var imageName=image.name;
@@ -10,9 +10,9 @@
 
             //Firestore
             var firestore = firebase.firestore();
-            var docRef = firestore.doc("Banner/4sy3TgaJ9HZp2XAZNaTest ");
+            var docRef = firestore.collection("Banner");
             console.log("Quotes "+deskripsi);
-            docRef.set({
+            docRef.add({
                 image:imageName,
                 deskripsi:deskripsi
             }).then(function(){
@@ -49,7 +49,7 @@
                 'Berhasil!',
                 'Upload Banner Sukses!',
                 'success'
-         )
+            )
             window.location.href = "/banner"
 
             uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) { 

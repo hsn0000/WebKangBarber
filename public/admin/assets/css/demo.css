@@ -1,4 +1,15 @@
 /* All styles created for demo purposes only, you may not need this for your project */
+
+#p-lookbook{
+  margin-top: 10px;
+  font-style: italic;
+}
+
+#p-banner{
+  margin-top: 10px;
+  font-style: italic;
+}
+
 .demo-button button {
   margin-bottom: 5px; }
 

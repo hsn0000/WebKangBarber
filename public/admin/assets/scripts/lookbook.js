@@ -9,9 +9,9 @@
 
             //Firestore
             var firestore = firebase.firestore();
-            var docRef = firestore.doc("Lookbook/4sy3TgaJ9HZp2XAZNaTest ");
+            var docRef = firestore.collection("Lookbook");
             console.log("Quotes "+deskripsi);
-            docRef.set({
+            docRef.add({
                 image:imageName,
                 deskripsi:deskripsi
             }).then(function(){
@@ -68,7 +68,7 @@
 
         $('#tablelookbook').find('tbody').html('');
             var i=0;
-            storageRef.child('Banner/').listAll().then(function (result) {
+            storageRef.child('Lookbook/').listAll().then(function (result) {
                 result.items.forEach(function (imageRef) {
                 
                     i++;

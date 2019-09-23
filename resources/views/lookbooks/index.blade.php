@@ -9,6 +9,7 @@
            <div class="panel">
 						<div class="panel-heading">
               <h3 class="panel-title"><B><i class="lnr lnr-dice"> LOOKBOOK</B></i></h3>
+              <p id="p-lookbook">kami menyarankan untuk ukuran gambar lookbok <span style="color:black;font-weight:bold;text-decoration:underline;">1500/900 X 1500/900px</span></p>
              @if(session('sukses'))
 			      	<div class="aler alert-success" role="alert">
 				        {{session('sukses')}}

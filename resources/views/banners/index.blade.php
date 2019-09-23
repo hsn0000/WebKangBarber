@@ -9,6 +9,7 @@
            <div class="panel">
 						<div class="panel-heading">
               <h3 class="panel-title"><i class="lnr lnr-file-empty"></i> <B>BANNER</B></h3>
+              <p id="p-banner">kami menyarankan untuk ukuran gambar banner <span style="color:red;font-weight:bold;text-decoration:underline;">1000/500 X 300/200px</span></p>
              @if(session('sukses'))
 			      	<div class="aler alert-success" role="alert">
 				        {{session('sukses')}}
