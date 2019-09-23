@@ -25,6 +25,7 @@
 				<div class="container">
 					<div class="row">
 						{!! config('about.lokasi') !!}
+						
 						<div class="col-lg-4 d-flex flex-column address-wrap">
 							<div class="single-contact-address d-flex flex-row">
 								<div class="icon">

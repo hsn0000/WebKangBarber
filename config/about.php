@@ -7,8 +7,9 @@ return [
 
     'image_url' => '/frontend/img/banner5.jpeg',
     'h1_about' => 'BookingKangBarber',
-    'h4_about' => 'Adalah barbershop yang sudah berdiri sejak tahun 2011 yang berpusat di bogor dan sudah membuka cabang dan       bergabung dengan ke mitraan barber@shop se jabotabek , kami juga memiliki App Mobile BookingkangBarber bisa anda           download langsung di google play store ',
-
+    'h4_about' => 'Adalah barbershop yang sudah berdiri sejak tahun 2012 yang berpusat di bogor dan sudah        membuka cabang dan bergabung dengan ke mitraan barber@shop se jabotabek, jam buka dan tutup untuk
+       waktu normal salon pemesanan di aplikasi kami open mulai pukul 09:00 WIB dan close sampai dengan pukul 19:00, untuk mendownload dan ingin langsung menggunakan service kami bisa langsung download di google play store atau bisa langsung download di link halaman depan website kami. terima kasih banyak sudah menjadi pelanggan setia kami.',
+ 
     'email_about' => '@KangBarber',
     'p_email' => 'Kirimi kami pertanyaan Anda kapan saja!',
     'address_about' => 'Bogor, Indonesia',
