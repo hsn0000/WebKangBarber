@@ -8,7 +8,7 @@
           <div class="col-md-12">
            <div class="panel">
 						<div class="panel-heading">
-              <h3 class="panel-title" style="color:black;font-weight:bold;"><i class="lnr lnr-file-empty"></i>BANNER</h3>
+              <h3 class="panel-title" style="color:black;font-weight:bold;"><i class="lnr lnr-file-empty"></i>BANNER IKLAN</h3>
               <p id="p-banner">kami menyarankan untuk ukuran gambar banner <span style="color:red;font-weight:bold;text-decoration:underline;">1000/500 X 300/200px</span></p>
              @if(session('sukses'))
 			      	<div class="aler alert-success" role="alert">
@@ -23,7 +23,7 @@
 									<table class="table table-hover" id="tablebanner">
 										<thead class="thead-info">
 											<tr>
-                         <th style=" text-align: center;">BANNNER</th>
+                         <th style=" text-align: center;">BANNNER IKLAN</th>
                          <th style=" text-align: center;">DESKRIPSI</th>
                          <th style=" text-align: center;">AKSI</th>
                          <th></th>

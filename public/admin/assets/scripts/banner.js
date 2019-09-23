@@ -46,7 +46,7 @@
         console.log("upload telah" + progress + "selesai");
 
         },function(error) {
-        
+         alert('error')
         console.log(error.message);
 
         },function() {

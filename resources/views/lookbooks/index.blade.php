@@ -8,7 +8,7 @@
           <div class="col-md-12">
            <div class="panel">
 						<div class="panel-heading">
-              <h3 class="panel-title" style="color:black;font-weight:bold;"><i class="lnr lnr-dice"> LOOKBOOK</i></h3>
+              <h3 class="panel-title" style="color:black;font-weight:bold;"><i class="lnr lnr-dice"> EVIDENT LOOKBOOK</i></h3>
               <p id="p-lookbook">kami menyarankan untuk ukuran gambar lookbok <span style="color:black;font-weight:bold;text-decoration:underline;">1500/900 X 1500/900px</span></p>
              @if(session('sukses'))
 			      	<div class="aler alert-success" role="alert">
@@ -23,7 +23,7 @@
 									<table class="table table-hover" id="tablelookbook">
 										<thead class="thead-info">
 											<tr>
-                         <th style=" text-align: center;">LOOKBOOK</th>
+                         <th style=" text-align: center;">EVIDENT LOOKBOOK</th>
                          <th style=" text-align: center;">DESKRIPSI</th>
                          <th style=" text-align: right;">AKSI</th>
                          <th></th>
