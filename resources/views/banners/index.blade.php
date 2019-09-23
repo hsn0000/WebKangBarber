@@ -8,7 +8,7 @@
           <div class="col-md-12">
            <div class="panel">
 						<div class="panel-heading">
-              <h3 class="panel-title"><i class="lnr lnr-file-empty"></i> <B>BANNER</B></h3>
+              <h3 class="panel-title" style="color:black;font-weight:bold;"><i class="lnr lnr-file-empty"></i>BANNER</h3>
               <p id="p-banner">kami menyarankan untuk ukuran gambar banner <span style="color:red;font-weight:bold;text-decoration:underline;">1000/500 X 300/200px</span></p>
              @if(session('sukses'))
 			      	<div class="aler alert-success" role="alert">
@@ -23,9 +23,10 @@
 									<table class="table table-hover" id="tablebanner">
 										<thead class="thead-info">
 											<tr>
-                         <th>BANNNER</th>
-                         <th>DESKRIPSI</th>
-                         <th>AKSI</th>
+                         <th style=" text-align: center;">BANNNER</th>
+                         <th style=" text-align: center;">DESKRIPSI</th>
+                         <th style=" text-align: center;">AKSI</th>
+                         <th></th>
 											</tr>
 										</thead>
 			 							<tbody>
@@ -64,10 +65,10 @@
               aria-describedby="text" placeholder="Deskripsi" required>
        </div>
          </div>
-         <progress value="0" max="100" id="uploadProgress">0%</progress>
+         <progress value="0" max="100" id="progressBanner">0%</progress>
            <div class="modal-footer">
              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-              <button type="button" class="btn btn-primary" onclick="upload();"><i class="lnr lnr-plus-circle"></i>Tambahkan</button>
+              <button type="button" class="btn btn-primary" onclick="uploadBanner();"><i class="lnr lnr-plus-circle"></i>Tambahkan</button>
           </div>
         </form>
      </div>

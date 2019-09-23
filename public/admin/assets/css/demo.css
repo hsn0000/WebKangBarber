@@ -10,6 +10,17 @@
   font-style: italic;
 }
 
+#progressLookbook {
+  width: 94%;
+  margin-left: 3%;
+}
+
+
+#progressBanner {
+  width: 94%;
+  margin-left: 3%;
+}
+
 .demo-button button {
   margin-bottom: 5px; }
 
