@@ -85,10 +85,10 @@
             
             function displayImage(row, images) {
 
-                images.getDownloadURL().then(function (url) {
-                    
+                images.getDownloadURL().then(function (url) {  
+
                 console.log(url);
-            
+
                 let new_html = '';
                 new_html += '<tr>';
                 new_html += '<td>';
@@ -98,17 +98,23 @@
                 new_html += 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quibusdam tenetur et corrupti quae,';
                 new_html += '</td>';
                 new_html += '<td>';
-                new_html += '<a href="#" class="btn btn-danger btn-sm ml-5 float-right delete" siswa-id=""><i class="lnr lnr-trash"> Hapus</i></a>';
+                new_html += '<button class="btn btn-danger btn-sm ml-5 float-right delete" onclick="delete()" siswa-id=""><i class="lnr lnr-trash"> Hapus</i></button>';
                 new_html += '</td>';
                 new_html += '<td>';
-                new_html += '<a href="#" class="btn btn-warning btn-sm float-right"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>';
+                new_html += '<button class="btn btn-warning btn-sm float-right"> <i class="fa fa-paper-plane-o"> Ubah</i> </button>';
                 new_html += '</td>';
                 new_html += '</tr>';
             
                 $('#tablelookbook').find('tbody').append(new_html);
-
         });
-
    }
+//    function delete(row, images){
+//     storageRef.child('Lookbook/').listAll().delete().then(function() {
+//         // File deleted successfully
+//       }).catch(function(error) {
+//         // Uh-oh, an error occurred!
+//       });
+      
+// }
         
 
