@@ -49,6 +49,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel"><b><i class="lnr lnr-plus-circle"></i> TAMBAH LOOKBOOK</h5></b>
+            <p id="p-lookbook">klik tombol tambahkan <span style="color:red;font-weight:bold;text-decoration:underline;">2 kali</span> untuk memastikan file ter upload seluruhnyah</p>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
@@ -86,17 +87,6 @@
 
  <script src="{{asset('admin/assets/scripts/lookbook.js')}}"></script>
 
-  <script>
-     
-        
-  </script>
-
-    <script>
-       $(document).ready(function() {
-          $('#datatable').DataTable()
-
-    });
-
-    </script>
+    
 @stop
 

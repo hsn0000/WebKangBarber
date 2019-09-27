@@ -301,4 +301,9 @@
 			</section>
 		<!-- End blog berita -->			
 			
+		
+@stop
+
+@section('footer')
+
 @stop

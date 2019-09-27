@@ -49,6 +49,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel"><b><i class="lnr lnr-plus-circle"></i> TAMBAH BANNER</h5></b>
+            <p id="p-lookbook">klik tombol tambahkan <span style="color:red;font-weight:bold;text-decoration:underline;">2 kali</span> untuk memastikan file ter upload seluruhnyah</p>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
@@ -67,8 +68,8 @@
          </div>
          <progress value="0" max="100" id="progressBanner">0%</progress>
            <div class="modal-footer">
-             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-              <button type="button" class="btn btn-primary" onclick="uploadBanner();"><i class="lnr lnr-plus-circle"></i>Tambahkan</button>
+             <button type="button" class="btn btn-dark" data-dismiss="modal">Tutup</button>
+              <button type="button" class="btn btn-success" onclick="uploadBanner();"><i class="lnr lnr-plus-circle"></i>Tambahkan</button>
           </div>
         </form>
      </div>
