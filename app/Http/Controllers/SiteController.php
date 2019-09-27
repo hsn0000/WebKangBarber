@@ -15,4 +15,9 @@ class SiteController extends Controller
    {
        return view('sites.download');
    }
+
+   public function inbox()
+   {
+       return view('inboxs.index');
+   }
 }

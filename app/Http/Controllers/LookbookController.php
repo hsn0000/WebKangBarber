@@ -10,4 +10,9 @@ class LookbookController extends Controller
     {
         return view('/lookbooks.index');
     }
+
+    public function ubah()
+    {
+        return view('/lookbooks.edit');
+    }
 }

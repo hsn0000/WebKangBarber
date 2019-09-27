@@ -43,7 +43,7 @@
   </div>
 
 
-   <!-- Modal -->
+   <!-- Modal Tambah-->
    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -57,7 +57,7 @@
          <div class="modal-body">
        <div class="form-group ">
           <label for="avatar">Ambil Gambar</label>
-          <input type="file" value="upload" name="avatar" class="form-control padding-bottom-30" id="imageLookbook">
+          <input type="file" value="upload" name="avatar" class="form-control padding-bottom-30" id="imageLookbook" required>
        </div>
        <div class="form-group ">
           <label for="deskripsi">Deskripsi</label>
@@ -73,6 +73,9 @@
         </form>
      </div>
 
+     
+  
+
 
 @stop
 
@@ -82,6 +85,11 @@
 @section('footer')
 
  <script src="{{asset('admin/assets/scripts/lookbook.js')}}"></script>
+
+  <script>
+     
+        
+  </script>
 
     <script>
        $(document).ready(function() {

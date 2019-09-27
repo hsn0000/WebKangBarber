@@ -57,22 +57,22 @@
 							</div>														
 						</div>
 						<div class="col-lg-8">
-							<form class="form-area contact-form text-right" id="myForm" action="#" method="post">
+							<form class="form-area contact-form text-right" id="myForm" action="#" method="">
 							 {{csrf_field()}}
 								<div class="row">	
 									<div class="col-lg-6 form-group">
-										<input name="name" placeholder="Masukan nama anda" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukan nama anda'" class="common-input mb-20 form-control" required="" type="text">
+										<input name="name" id="inputName" placeholder="Masukan nama anda" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukan nama anda'" class="common-input mb-20 form-control" required="" type="text">
 									
-										<input name="email" placeholder="Masukan alamat email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukan alamat email'" class="common-input mb-20 form-control" required="" type="email">
+										<input name="email" id="inputEmail" placeholder="Masukan alamat email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukan alamat email'" class="common-input mb-20 form-control" required="" type="email">
 
-										<input name="subject" placeholder="Masukan subjek" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukan subjek'" class="common-input mb-20 form-control" required="" type="text">
+										<input name="subject" id="inputSubject" placeholder="Masukan subjek" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukan subjek'" class="common-input mb-20 form-control" required="" type="text">
 									</div>
 									<div class="col-lg-6 form-group">
-										<textarea class="common-textarea form-control" name="message" placeholder="Masukan pesan" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukan pesan'" required=""></textarea>				
+										<textarea class="common-textarea form-control" id="inputMessage" name="message" placeholder="Masukan pesan, kririk dan saran anda" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukan pesan'" required=""></textarea>				
 									</div>
 									<div class="col-lg-12">
 										<div class="alert-msg" style="text-align: left;"></div>
-										<button class="genric-btn primary" style="float: right;">Kirim Pesan</button>											
+										<button class="genric-btn primary" style="float: right;" onclick="kirimPesan();">Kirim Pesan</button>											
 									</div>
 								</div>
 							</form>	
@@ -81,4 +81,56 @@
 				</div>	
 			</section>
 			
+@stop
+
+@section('footer')
+
+	<script>
+
+  function kirimPesan() {
+
+	  var database = firebase.database();
+	  var firestore = firebase.firestore();
+	  var docRef = firestore.collection("Inbox");
+	  var name = $('#inputName').val();
+	  var email = $('#inputEmail').val();
+	  var subject = $('#inputSubject').val();
+	  var message = $('#inputMessage').val();
+
+	  docRef.add({
+             name:name,
+			 email:email,
+			 subject:subject,
+			 message:message,
+             }).then(function(){
+				
+				console.log("Berhasil");
+				  Swal.fire({
+					title: 'Terimakasih',
+					text: 'atas perhatian kritik dan saran anda.',
+					imageUrl: 'https://media.tenor.com/images/48ee11f7ac0d8c24cd2936466a6c6911/tenor.gif',
+					imageWidth: 400,
+					imageHeight: 200,
+					imageAlt: 'Trimakasih Img',
+					animation: true
+				})
+			
+
+           }).catch(function(error){
+			
+				Swal.fire({
+					type: 'error',
+					title: 'Maap',
+					text: 'Pesan anda gagal terkirim!',
+				})
+					console.log("Gagal: ",error);
+				
+					
+			});
+			
+	
+  }
+
+	</script>
+
 @stop

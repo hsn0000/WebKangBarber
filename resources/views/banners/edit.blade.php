@@ -30,3 +30,10 @@
 </div>
 
 @stop
+
+
+@section('footer')
+
+ <script src="{{asset('admin/assets/scripts/lookbook.js')}}"></script>
+
+@stop

@@ -86,7 +86,8 @@
 			</footer>	
 			<!-- End footer Area -->	
 
-
+			<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+       
 			<script src="{{asset('/frontend')}}/js/vendor/jquery-2.2.4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 			<script src="{{asset('/frontend')}}/js/vendor/bootstrap.min.js"></script>			
@@ -102,6 +103,30 @@
 			<script src="{{asset('/frontend')}}/js/mail-script.js"></script>	
 			<script src="{{asset('/frontend')}}/js/main.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"> </script>
+
+			<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+			<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+			https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script>
+		// Your web app's Firebase configuration
+		var firebaseConfig = {
+			apiKey: "AIzaSyAZw3MrxGhyl7KOUfEn48pjuDU8rABTT8A",
+			authDomain: "bokingkangbarers.firebaseapp.com",
+			databaseURL: "https://bokingkangbarers.firebaseio.com",
+			projectId: "bokingkangbarers",
+			storageBucket: "bokingkangbarers.appspot.com",
+			messagingSenderId: "65666793632",
+			appId: "1:65666793632:web:84128b2cf66b7a0d0909c5"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+
+        </script>
+
+
 		@yield('footer')
 			
 	<script>

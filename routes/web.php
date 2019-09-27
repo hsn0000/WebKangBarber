@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
  Route::get('/about', 'SiteController@about');
  Route::get('/download', 'SiteController@download');
+ Route::get('/inbox','SiteController@inbox');
 
  Route::get('/login', 'AuthController@login');
  Route::get('/loginAdmin', 'AuthController@loginAdmin');
@@ -29,3 +30,4 @@ Route::get('/', function () {
 Route::get('/banner', 'BannerController@index');
 
 Route::get('/lookbook', 'LookbookController@index');
+Route::get('/ubah','LookbookController@ubah');

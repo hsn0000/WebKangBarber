@@ -60,53 +60,54 @@
         })
      
       
-})
+ })
 
 
 }
 
-//    <!-- load image dari firebase -->
-    
-var storage = firebase.storage();
-var storageRef = storage.ref();
-
-$('#tablebanner').find('tbody').html('');
+    //    <!-- load image dari firebase -->
+    var firestore = firebase.firestore();
+    var docRef = firestore.collection("Banner");
+    var storage = firebase.storage();
+    var storageRef = storage.ref();
+   
+    $('#tablebanner').find('tbody').html('');
     var i=0;
-    storageRef.child('Banner/').listAll().then(function (result) {
-        result.items.forEach(function (imageRef) {
-        
-            i++;
-            displayImage(i, imageRef); 
+
+    firestore.collection("Banner").get().then(function(querySnapshot) {
+    console.log(querySnapshot);
+    querySnapshot.forEach(function(doc) {
+
+    i++;
+        displayDoc(i, doc.data());
+
+        console.log(doc.id, " => ", doc.data());
         });
-
     });
-    
-    function displayImage(row, images) {
+    function displayDoc(row, data) {
 
-        images.getDownloadURL().then(function (url) {
-            
-        console.log(url);
-    
+        console.log(data);
+
         let new_html = '';
         new_html += '<tr>';
         new_html += '<td>';
-        new_html += '<img src=" '+url+'" width="250px" style="float:left">';
+        new_html += '<img src=" '+data.image+'" width="250px" style="float:left">';
         new_html += '</td>';
         new_html += '<td>';
-        new_html += 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quibusdam tenetur et corrupti quae,';
+        new_html += data.deskripsi;
         new_html += '</td>';
         new_html += '<td>';
-        new_html += '<a href="#" class="btn btn-danger btn-sm ml-5 float-right delete" siswa-id=""><i class="lnr lnr-trash"> Hapus</i></a>';
+        new_html += '<button class="btn btn-danger btn-sm ml-5 float-right delete" onclick="delete()" siswa-id=""><i class="lnr lnr-trash"> Hapus</i></button>';
         new_html += '</td>';
         new_html += '<td>';
-        new_html += '<a href="#" class="btn btn-warning btn-sm float-right"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>';
+        new_html += '<a href="/ubah" class="btn btn-warning btn-sm float-right" data-target="#moadalUbah"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>';
         new_html += '</td>';
         new_html += '</tr>';
-    
+
         $('#tablebanner').find('tbody').append(new_html);
 
-});
 
-}
+    }
+
 
 

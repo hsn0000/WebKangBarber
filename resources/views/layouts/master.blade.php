@@ -65,7 +65,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 			<!-- The core Firebase JS SDK is always required and must be listed first -->
 		<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-firestore.js"></script>
 		<!-- TODO: Add SDKs for Firebase products that you want to use
 			https://firebase.google.com/docs/web/setup#available-libraries -->
 		<script>
