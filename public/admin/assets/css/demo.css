@@ -21,6 +21,30 @@
   margin-left: 3%;
 }
 
+#progressPomade {
+  width: 94%;
+  margin-left: 3%;
+}
+
+
+#progressSpray {
+  width: 94%;
+  margin-left: 3%;
+}
+
+#progressHaircare {
+  width: 94%;
+  margin-left: 3%;
+}
+
+#progressBodycare {
+  width: 94%;
+  margin-left: 3%;
+}
+
+
+/* custom */
+
 .demo-button button {
   margin-bottom: 5px; }
 

@@ -17,8 +17,6 @@
 		@yield('head')
         
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-		<!-- // toster -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">	
 		<!--
 			CSS
 			============================================= -->
@@ -102,9 +100,8 @@
 			<script src="{{asset('/frontend')}}/js/owl.carousel.min.js"></script>									
 			<script src="{{asset('/frontend')}}/js/mail-script.js"></script>	
 			<script src="{{asset('/frontend')}}/js/main.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"> </script>
 
-			<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+			<!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
 			<!-- The core Firebase JS SDK is always required and must be listed first -->
 		<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-firestore.js"></script>

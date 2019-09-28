@@ -79,14 +79,9 @@
 
 
 @section('footer')
+
 <script src="{{asset('admin/assets/scripts/banner.js')}}"></script>
 
 
- <script>
-   $(document).ready(function() {
-    $('#tablebanner').DataTable()
-    
- </script>
-    
 @stop
 

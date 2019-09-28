@@ -79,14 +79,15 @@
     querySnapshot.forEach(function(doc) {
 
     i++;
-        displayDoc(i, doc.data());
+        displayDoc(i, doc.data(),doc.id);
 
         console.log(doc.id, " => ", doc.data());
         });
     });
-    function displayDoc(row, data) {
+    function displayDoc(row, data,id) {
 
-        console.log(data);
+        let hasil = id.toString();
+        console.log(hasil);
 
         let new_html = '';
         new_html += '<tr>';
@@ -97,7 +98,7 @@
         new_html += data.deskripsi;
         new_html += '</td>';
         new_html += '<td>';
-        new_html += '<button class="btn btn-danger btn-sm ml-5 float-right delete" onclick="delete()" siswa-id=""><i class="lnr lnr-trash"> Hapus</i></button>';
+        new_html += "<button class='btn btn-danger btn-sm ml-5 float-right' input type='button' onclick='deleteBanner(\""+hasil+"\");' value='Remove this doc'><i class='lnr lnr-trash'> Hapus</i></button>";
         new_html += '</td>';
         new_html += '<td>';
         new_html += '<a href="/ubah" class="btn btn-warning btn-sm float-right" data-target="#moadalUbah"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>';
@@ -108,6 +109,45 @@
 
 
     }
+
+    // delete data
+
+    function deleteBanner(id) {
+        console.log(id);
+        var firestore = firebase.firestore();
+      //  var docRef = firestore.collection("Banner").doc("");        
+       
+     firestore.collection("Banner").doc(id).delete().then(function() {
+
+        Swal.fire({
+            title: 'Apa anda yakin?',
+            text: "Ingin menghapus file ini?",
+            type: 'danger',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yakin !'
+
+        }).then((result) => {
+            if (result.value) {
+                 Swal.fire({
+                    position: 'top-end',
+                    type: 'success',
+                    title: 'File Berhasil Di Hapus',
+                    showConfirmButton: false,
+                    timer: 1500
+             })
+        } 
+        window.location.href =('/banner');
+    
+    })
+
+        }).catch(function(error) {
+          alert('error');
+          console.error("Error removing document: ", error);
+     });
+      
+ }
 
 
 

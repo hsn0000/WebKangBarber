@@ -32,4 +32,7 @@ Route::get('/banner', 'BannerController@index');
 Route::get('/lookbook', 'LookbookController@index');
 Route::get('/ubah','LookbookController@ubah');
 
-Route::get('/shopping','ShoppingController@index');
+Route::get('/pomade','ShoppingController@pomade');
+Route::get('/spray','ShoppingController@spray');
+Route::get('/haircare','ShoppingController@haircare');
+Route::get('/bodycare','ShoppingController@bodycare');
