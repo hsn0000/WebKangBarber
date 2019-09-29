@@ -9,16 +9,12 @@
            <div class="panel">
 						<div class="panel-heading">
               <h3 class="panel-title" style="color:black;font-weight:bold;"><i class="lnr lnr-cart">BODYCARE</i></h3>
-             @if(session('sukses'))
-			      	<div class="aler alert-success" role="alert">
-				        {{session('sukses')}}
-			      	</div>
-			    	@endif
               <div class="right">
+                <button class="btn" data-toggle="modal" data-target="#exampleModal" id="tambahBodycare" ><b><i class="lnr lnr-plus-circle" >Tambah Barang BodyCare</i></b></button>
                </div>
 							</div>
 								<div class="panel-body">
-									<table class="table table-hover" id="tableBody">
+									<table class="table table-hover" id="tableBodycare">
 										<thead class="thead-info">
 										<tr>
                        <th style=" text-align: center;">Photo</th>
@@ -41,67 +37,51 @@
 
      
   
+ <!-- Modal Tambah-->
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><b><i class="lnr lnr-plus-circle"></i> TAMBAH PRODUK BODYCARE</h5></b>
+            <p id="p-lookbook">klik tombol tambahkan <span style="color:red;font-weight:bold;text-decoration:underline;">2 kali</span> untuk memastikan file ter upload seluruhnyah</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+      <form action="" enctype="multipart/form-data">
+         <div class="modal-body">
+       <div class="form-group ">
+          <label for="avatar">Ambil Gambar</label>
+          <input type="file" value="upload" name="avatar" class="form-control padding-bottom-30" id="imageBodycare" required>
+       </div>
+       <div class="form-group ">
+          <label for="namaProduk">Nama Produk</label>
+          <input name="namaProduk" type="text" class="form-control" id="nameBodycare" 
+              aria-describedby="text" placeholder="Nama Produk" required>
+       </div>
+       <div class="form-group ">
+          <label for="deskripsi">Harga</label>
+          <input name="deskripsi" type="number" class="form-control" id="priceBodycare" 
+              aria-describedby="number" placeholder="Harga Barang" required>
+       </div>
+         </div>
+         <progress value="0" max="100" id="progressBodycare">0%</progress>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+             <button type="button" class="btn btn-primary" onclick=" uploadBodycare();"><i class="lnr lnr-plus-circle"></i>Tambahkan</button>
+          </div>
+        </form> 
+     </div>
+
+  
 
 
 @stop
-
 
 
 
 @section('footer')
 
-  <script>
-      
-      var firestore = firebase.firestore();
-      var docRef = firestore.collection("Shopping").doc("BodyCare").collection("Items");
-      var storage = firebase.storage();
-      var storageRef = storage.ref();
-    
-      $('#tableBody').find('tbody').html('');
-      var i=0;
+<script src="{{asset('admin/assets/scripts/bodycare.js')}}"></script>
 
-      firestore.collection("Shopping").doc("BodyCare").collection("Items").get().then(function(querySnapshot) {
-      console.log(querySnapshot);
-      querySnapshot.forEach(function(doc) {
-
-      i++;
-          displayDoc(i, doc.data());
-
-          console.log(doc.id, " => ", doc.data());
-        });
-    });
-    function displayDoc(row, data) {
-
-        console.log(data);
-
-        let new_html = '';
-        new_html += '<tr>';
-        new_html += '<td>';
-        new_html += '<img src=" '+data.image+'" width="250px" style="float:left">';
-        new_html += '</td>';
-        new_html += '<td>';
-        new_html += data.name;
-        new_html += '</td>';
-        new_html += '<td>';
-        new_html += '<p>Rp.('+data.price+')</p>';
-        new_html += '</td>';
-        new_html += '<td>';
-        new_html += '<button class="btn btn-danger btn-sm ml-5 float-right delete" onclick="delete()" siswa-id=""><i class="lnr lnr-trash"> Hapus</i></button>';
-        new_html += '</td>';
-        new_html += '<td>';
-        new_html += '<a href="/ubah" class="btn btn-warning btn-sm float-right" data-target="#moadalUbah"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>';
-        new_html += '</td>';
-        new_html += '</tr>';
-
-        $('#tableBody').find('tbody').append(new_html);
-
-
-    }
-
-
-  </script>
-
-
-    
 @stop
-

@@ -69,7 +69,7 @@
              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
              <button type="button" class="btn btn-primary" onclick=" uploadPomade();"><i class="lnr lnr-plus-circle"></i>Tambahkan</button>
           </div>
-        </form>
+        </form> 
      </div>
 
      

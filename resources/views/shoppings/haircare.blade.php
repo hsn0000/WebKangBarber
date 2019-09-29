@@ -9,12 +9,8 @@
            <div class="panel">
 						<div class="panel-heading">
               <h3 class="panel-title" style="color:black;font-weight:bold;"><i class="lnr lnr-cart">HAIRCARE</i></h3>
-             @if(session('sukses'))
-			      	<div class="aler alert-success" role="alert">
-				        {{session('sukses')}}
-			      	</div>
-			    	@endif
               <div class="right">
+              <button class="btn" data-toggle="modal" data-target="#exampleModal" id="tambahHaircare" ><b><i class="lnr lnr-plus-circle" >Tambah Barang HairCare</i></b></button>
                </div>
 							</div>
 								<div class="panel-body">
@@ -39,7 +35,43 @@
     </div>
   </div>
 
-     
+      
+ <!-- Modal Tambah-->
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><b><i class="lnr lnr-plus-circle"></i> TAMBAH PRODUK HAIRCARE</h5></b>
+            <p id="p-lookbook">klik tombol tambahkan <span style="color:red;font-weight:bold;text-decoration:underline;">2 kali</span> untuk memastikan file ter upload seluruhnyah</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+      <form action="" enctype="multipart/form-data">
+         <div class="modal-body">
+       <div class="form-group ">
+          <label for="avatar">Ambil Gambar</label>
+          <input type="file" value="upload" name="avatar" class="form-control padding-bottom-30" id="imageHaircare" required>
+       </div>
+       <div class="form-group ">
+          <label for="namaProduk">Nama Produk</label>
+          <input name="namaProduk" type="text" class="form-control" id="nameHaircare" 
+              aria-describedby="text" placeholder="Nama Produk" required>
+       </div>
+       <div class="form-group ">
+          <label for="haircare">Harga</label>
+          <input name="haircare" type="number" class="form-control" id="priceHaircare" 
+              aria-describedby="number" placeholder="Harga produk" required>
+       </div>
+         </div>
+         <progress value="0" max="100" id="progressHaircare">0%</progress>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+             <button type="button" class="btn btn-primary" onclick=" uploadHaircare();"><i class="lnr lnr-plus-circle"></i>Tambahkan</button>
+          </div>
+        </form> 
+     </div>
+
   
 
 
@@ -47,61 +79,8 @@
 
 
 
-
 @section('footer')
 
-  <script>
-      
-      var firestore = firebase.firestore();
-      var docRef = firestore.collection("Shopping").doc("HairCare").collection("Items");
-      var storage = firebase.storage();
-      var storageRef = storage.ref();
-    
-      $('#tableHair').find('tbody').html('');
-      var i=0;
+<script src="{{asset('admin/assets/scripts/haircare.js')}}"></script>
 
-      firestore.collection("Shopping").doc("HairCare").collection("Items").get().then(function(querySnapshot) {
-      console.log(querySnapshot);
-      querySnapshot.forEach(function(doc) {
-
-      i++;
-          displayDoc(i, doc.data());
-
-          console.log(doc.id, " => ", doc.data());
-        });
-    });
-    function displayDoc(row, data) {
-
-        console.log(data);
-
-        let new_html = '';
-        new_html += '<tr>';
-        new_html += '<td>';
-        new_html += '<img src=" '+data.image+'" width="250px" style="float:left">';
-        new_html += '</td>';
-        new_html += '<td>';
-        new_html += data.name;
-        new_html += '</td>';
-        new_html += '<td>';
-        new_html += '<p>Rp.('+data.price+')</p>';
-        new_html += '</td>';
-        new_html += '<td>';
-        new_html += '<button class="btn btn-danger btn-sm ml-5 float-right delete" onclick="delete()" siswa-id=""><i class="lnr lnr-trash"> Hapus</i></button>';
-        new_html += '</td>';
-        new_html += '<td>';
-        new_html += '<a href="/ubah" class="btn btn-warning btn-sm float-right" data-target="#moadalUbah"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>';
-        new_html += '</td>';
-        new_html += '</tr>';
-
-        $('#tableHair').find('tbody').append(new_html);
-
-
-    }
-
-
-  </script>
-
-
-    
 @stop
-
