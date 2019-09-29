@@ -19,6 +19,8 @@ Route::get('/', function () {
  Route::get('/about', 'SiteController@about');
  Route::get('/download', 'SiteController@download');
  Route::get('/inbox','SiteController@inbox');
+ Route::get('/post','SiteController@post');
+ Route::get('ubahpost','SiteController@ubahpost');
 
  Route::get('/login', 'AuthController@login');
  Route::get('/loginAdmin', 'AuthController@loginAdmin');
@@ -34,6 +36,10 @@ Route::get('/lookbook', 'LookbookController@index');
 Route::get('/ubahlookbook/{id}','LookbookController@ubahlookbook');
 
 Route::get('/pomade','ShoppingController@pomade');
+Route::get('/ubahpomade/{id}','ShoppingController@ubahpomade');
 Route::get('/spray','ShoppingController@spray');
+Route::get('/ubahspray/{id}','ShoppingController@ubahspray');
 Route::get('/haircare','ShoppingController@haircare');
+Route::get('/ubahhaircare/{id}','ShoppingController@ubahhaircare');
 Route::get('/bodycare','ShoppingController@bodycare');
+Route::get('/ubahbodycare/{id}','ShoppingController@ubahbodycare');

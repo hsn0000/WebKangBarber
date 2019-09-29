@@ -20,4 +20,15 @@ class SiteController extends Controller
    {
        return view('inboxs.index');
    }
+
+   public function post()
+   { 
+       return view('posts.post');
+   }
+
+   public function ubahpost($id)
+   {
+       return view('posts.post',['id' => $id]);
+   }
+
 }

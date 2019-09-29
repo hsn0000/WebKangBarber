@@ -1,14 +1,15 @@
-   // tambah pomade
+  // tambah pomade
   
-   function uploadPomade() { 
+  function uploadPost() { 
 
     var foto = "";
     var firestore = firebase.firestore();
-    var docRef = firestore.collection("Shopping").doc("Wax").collection("Items");
-    var progress=document.getElementById('progressPomade')
-    var image=document.getElementById("imagePomade").files[0];
-    var name = $('#namePomade').val();
-    var price = parseInt($('#pricePomade').val());
+    var docRef = firestore.collection("Posting");
+    var progress=document.getElementById('progressPost')
+    var image=document.getElementById("imagePost").files[0];
+    var dari = $('#dariPost').val();
+    var judul = $('#judulPost').val();
+    var deskripsi = $('#deskPost').val();
     var imageName=image.name;
     var storageRef=firebase.storage().ref('Pomade/'+imageName);
     var uploadTask=storageRef.put(image);
@@ -18,13 +19,14 @@
         // alert(foto)
         console.log(foto)
     //  upload firestore
-            console.log("Quotes "+name,price);
+            console.log("Quotes "+dari,judul,deskripsi);
             docRef.add({
                 image:foto,
-                name:name,
-                price:price,
+                dari:dari,
+                judul:judul,
+                deskripsi:deskripsi,
             }).then(function(){
-              window.location.href = "/pomade";
+              window.location.href = "/post";
             console.log("Berhasil di tambahkan");
 
             }).catch(function(error){
@@ -32,7 +34,7 @@
                 Swal.fire({
                 type: 'error',
                 title: 'Oops...',
-                text: 'Upload LookBook Gagal!',
+                text: 'Upload Post Gagal!',
             })
                 console.log("Gagal: ",error);
                 
@@ -58,7 +60,7 @@
         Swal.fire({
             position: 'top-end',
             type: 'success',
-            title: 'Upload LookBook Berhasil',
+            title: 'Upload Post Berhasil',
             showConfirmButton: false,
             timer: 1500
         })
@@ -74,14 +76,14 @@
 
         
         var firestore = firebase.firestore();
-        var docRef = firestore.collection("Shopping").doc("Wax").collection("Items");
+        var docRef = firestore.collection("Post");
         var storage = firebase.storage();
         var storageRef = storage.ref();
 
-            $('#tablepomade').find('tbody').html('');
+            $('#tablePost').find('tbody').html('');
             var i=0;
 
-            firestore.collection("Shopping").doc("Wax").collection("Items").get().then(function(querySnapshot) {
+            firestore.collection("Posting").get().then(function(querySnapshot) {
             console.log(querySnapshot);
             querySnapshot.forEach(function(doc) {
 
@@ -99,34 +101,40 @@
             let new_html = '';
             new_html += '<tr>';
             new_html += '<td>';
-            new_html += '<img src=" '+data.image+'" width="250px" style="float:left">';
+            new_html += '<p>tgl</p>';
+            new_html += '</p>';
+            new_html += '<td>';
+            new_html += '<img src=" '+data.image+'" width="110px" style="float:left">';
             new_html += '</td>';
             new_html += '<td>';
-            new_html += data.name;
+            new_html += data.dari;
             new_html += '</td>';
             new_html += '<td>';
-            new_html += '<p>Rp.('+data.price+')</p>';
+            new_html += data.judul;
             new_html += '</td>';
             new_html += '<td>';
-            new_html += "<button class='btn btn-danger btn-sm ml-5 float-right' input type='button' onclick='deletePomade(\""+hasil+"\");'><i class='lnr lnr-trash'> Hapus</i></button>";
+            new_html += '<p>"'+data.deskripsi+'"</p>';
             new_html += '</td>';
             new_html += '<td>';
-            new_html += '<a href="ubahpomade/'+hasil+'" class="btn btn-warning btn-sm float-right" data-target="#moadalUbah"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>';
+            new_html += "<button class='btn btn-danger btn-sm ml-5 float-right' input type='button' onclick='deletePost(\""+hasil+"\");'><i class='lnr lnr-trash'> Hapus</i></button>";
+            new_html += '</td>';
+            new_html += '<td>';
+            new_html += '<a href="ubahpost/'+hasil+'" class="btn btn-warning btn-sm float-right" data-target="#moadalUbah"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>';
             new_html += '</td>';
             new_html += '</tr>';
 
-            $('#tablepomade').find('tbody').append(new_html);
+            $('#tablePost').find('tbody').append(new_html);
 
 
      }
 
     //  delete data
         
-    function deletePomade(id) {
+    function deletePost(id) {
         console.log(id);
         var firestore = firebase.firestore();    
     
-    firestore.collection("Shopping").doc("Wax").collection("Items").doc(id).delete().then(function() {
+    firestore.collection("Posting").doc(id).delete().then(function() {
 
         Swal.fire({
             title: 'Apa anda yakin?',
@@ -147,7 +155,7 @@
                     timer: 1500
             })
             } 
-            window.location.href =('/pomade');
+            window.location.href =('/post');
 
         })
 

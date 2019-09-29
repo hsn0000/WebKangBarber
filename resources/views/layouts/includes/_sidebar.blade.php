@@ -18,7 +18,7 @@
 							</div>
 						</li>
 						<li><a href="{{url('/inbox')}}" class=""><i class="fa fa-envelope"></i> <span>Kotak Masuk</span></a></li>
-						<li><a href="#" class=""><i class="fa fa-paper-plane-o"></i> <span>Posting</span></a></li>
+						<li><a href="/post" class=""><i class="fa fa-paper-plane-o"></i> <span>Posting</span></a></li>
 						<li><a href="#" class=""><i class="fa fa-calendar"></i> <span>History</span></a></li>
 						<li><a href="#" class=""><i class="fa fa fa-bell"></i> <span>Notifikasi</span></a></li>
 			
