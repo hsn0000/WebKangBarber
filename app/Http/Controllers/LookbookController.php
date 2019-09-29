@@ -11,8 +11,8 @@ class LookbookController extends Controller
         return view('/lookbooks.index');
     }
 
-    public function ubah()
+    public function ubahlookbook($id)
     {
-        return view('/lookbooks.edit');
+        return view('/lookbooks.ubahlookbook',['id' => $id]);
     }
 }

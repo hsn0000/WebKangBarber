@@ -23,6 +23,7 @@
                 deskripsi:deskripsi
             }).then(function(){
                
+                window.location.href = "/banner"
              console.log("Deskripsi di simpan");
    
             }).catch(function(error){
@@ -66,6 +67,7 @@
 }
 
     //    <!-- load image dari firebase -->
+
     var firestore = firebase.firestore();
     var docRef = firestore.collection("Banner");
     var storage = firebase.storage();
@@ -101,7 +103,7 @@
         new_html += "<button class='btn btn-danger btn-sm ml-5 float-right' input type='button' onclick='deleteBanner(\""+hasil+"\");' value='Remove this doc'><i class='lnr lnr-trash'> Hapus</i></button>";
         new_html += '</td>';
         new_html += '<td>';
-        new_html += '<a href="/ubah" class="btn btn-warning btn-sm float-right" data-target="#moadalUbah"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>';
+        new_html += '<a href="ubahbanner/'+hasil+'" class="btn btn-warning btn-sm float-right"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>';
         new_html += '</td>';
         new_html += '</tr>';
 
@@ -147,7 +149,12 @@
           console.error("Error removing document: ", error);
      });
       
- }
+ } 
+
+   
+//    update data
+
+
 
 
 

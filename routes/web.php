@@ -28,9 +28,10 @@ Route::get('/', function () {
  Route::get('/dashboard', 'DashboardController@index');
 
 Route::get('/banner', 'BannerController@index');
+Route::get('/ubahbanner/{id}','BannerController@ubahbanner');
 
 Route::get('/lookbook', 'LookbookController@index');
-Route::get('/ubah','LookbookController@ubah');
+Route::get('/ubahlookbook/{id}','LookbookController@ubahlookbook');
 
 Route::get('/pomade','ShoppingController@pomade');
 Route::get('/spray','ShoppingController@spray');

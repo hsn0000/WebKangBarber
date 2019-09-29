@@ -10,4 +10,10 @@ class BannerController extends Controller
     {
         return view('banners.index');
     }
+
+    public function ubahbanner($id)
+    {
+
+        return view('banners.ubahbanner', ['id' => $id]);
+    }
 }
