@@ -24,7 +24,7 @@
                 name:name,
                 price:price,
             }).then(function(){
-              
+                window.location.href = "/bodycare"
             console.log("Berhasil di tambahkan");
 
             }).catch(function(error){
@@ -110,7 +110,7 @@
         new_html += "<button class='btn btn-danger btn-sm ml-5 float-right' input type='button' onclick='deleteBodycare(\""+hasil+"\");'><i class='lnr lnr-trash'> Hapus</i></button>";
         new_html += '</td>';
         new_html += '<td>';
-        new_html += '<a href="/ubah" class="btn btn-warning btn-sm float-right" data-target="#moadalUbah"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>';
+        new_html += '<a href="/ubahbodycare/'+hasil+'" class="btn btn-warning btn-sm float-right" data-target="#moadalUbah"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>';
         new_html += '</td>';
         new_html += '</tr>';
 

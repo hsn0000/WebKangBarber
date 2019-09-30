@@ -234,7 +234,7 @@
 			<!-- End cta Area -->
 
 			<!-- Start blog berita  -->
-			<section class="blog-area section-gap" id="blog">
+			<section class="blog-area section-gap" id="post">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-70 col-lg-8">
@@ -243,59 +243,9 @@
 							</div>
 						</div>
 					</div>					
-					<div class="row">
-						<div class="col-lg-3 col-md-6 single-blog">
-							<div class="thumb">
-								<img class="img-fluid" src="{{config('barber.image_berita1_url')}}" alt="">								
-							</div>
-							<p class="meta"> {{config('barber.tanggal_berita1')}} <a href="#"> {{config('barber.kang_berita1')}} </a></p>
-							<a href="#">
-								<h5>{{config('barber.h5_berita1')}}</h5>
-							</a>
-							<p>
-							{{config('barber.p_berita1')}}
-							</p>
-							<a href="#" class="details-btn d-flex justify-content-center align-items-center"><span class="details">Details</span><span class="lnr lnr-arrow-right"></span></a>		
-						</div>
-						<div class="col-lg-3 col-md-6 single-blog">
-							<div class="thumb">
-								<img class="img-fluid" src="{{config('barber.image_berita2_url')}}" alt="">								
-							</div>
-							<p class="meta"> {{config('barber.tanggal_berita2')}} <a href="#">{{config('barber.kang_berita2')}}</a></p>
-							<a href="#">
-								<h5>{{config('barber.h5_berita2')}}</h5>
-							</a>
-							<p>
-							{{config('barber.p_berita2')}}
-							</p>
-							<a href="#" class="details-btn d-flex justify-content-center align-items-center"><span class="details">Details</span><span class="lnr lnr-arrow-right"></span></a>						
-						</div>
-						<div class="col-lg-3 col-md-6 single-blog">
-							<div class="thumb">
-								<img class="img-fluid" src="{{config('barber.image_berita3_url')}}" alt="">								
-							</div>
-							<p class="meta"> {{config('barber.tanggal_berita3')}} <a href="#">{{config('barber.kang_berita3')}}</a></p>
-							<a href="#">
-								<h5>{{config('barber.h5_berita3')}}</h5>
-							</a>
-							<p>
-							{{config('barber.p_berita3')}}
-							</p>
-							<a href="#" class="details-btn d-flex justify-content-center align-items-center"><span class="details">Details</span><span class="lnr lnr-arrow-right"></span></a>						
-						</div>	
-						<div class="col-lg-3 col-md-6 single-blog">
-							<div class="thumb">
-								<img class="img-fluid" src="{{config('barber.image_berita4_url')}}" alt="">								
-							</div>
-							<p class="meta"> {{config('barber.tanggal_berita4')}} <a href="#">{{config('barber.kang_berita4')}}</a></p>
-							<a href="#">
-								<h5>{{config('barber.h5_berita4')}}</h5>
-							</a>
-							<p>
-							{{config('barber.p_berita4')}}
-							</p>
-							<a href="#" class="details-btn d-flex justify-content-center align-items-center"><span class="details">Details</span><span class="lnr lnr-arrow-right"></span></a>						
-						</div>			
+					<div class="row" id="postItem">
+						
+					
 					</div>
 		    	</div>
 			</section>
@@ -305,5 +255,72 @@
 @stop
 
 @section('footer')
+
+      <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
+			<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-firestore.js"></script>
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+			https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script>
+		// Your web app's Firebase configuration
+		var firebaseConfig = {
+			apiKey: "AIzaSyAZw3MrxGhyl7KOUfEn48pjuDU8rABTT8A",
+			authDomain: "bokingkangbarers.firebaseapp.com",
+			databaseURL: "https://bokingkangbarers.firebaseio.com",
+			projectId: "bokingkangbarers",
+			storageBucket: "bokingkangbarers.appspot.com",
+			messagingSenderId: "65666793632",
+			appId: "1:65666793632:web:84128b2cf66b7a0d0909c5"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig); 
+
+	 $(document).ready(function() {
+
+			var docRef = firebase.firestore().collection("Posting");
+			var firestore = firebase.firestore();
+			var storage = firebase.storage();
+			var storageRef = storage.ref();
+
+            $('#post').find('tbody').html('');
+            var i = 0;
+
+            docRef.get().then(function(querySnapshot) {
+            console.log(querySnapshot);
+            querySnapshot.forEach(function(doc) {
+
+                i++;
+                    displayDoc(i, doc.data(),doc.id);
+
+                    console.log(doc.id, " => ", doc.data());
+                });
+            });
+            function displayDoc(row, data, id) {
+ 
+				let hasil = id.toString();
+
+				let new_html = '';
+				new_html = '<div class="col-lg-3 col-md-6 single-blog"><div class="thumb"><img class="img-fluid"  src="'+data.image+'" alt=""></div><p class="meta">'+data.tanggal+' Dari | <a href="#"> '+data.dari+'</a></p><a href="#"><h5>'+data.judul+'</h5></a><p>'+data.deskripsi+'.</p><a href="#" class="details-btn d-flex justify-content-center align-items-center"><span class="details">Details</span><span class="lnr lnr-arrow-right"></span></a></div>'; 
+            	$('#post').find('#postItem').append(new_html);
+			}
+
+			
+         docRef.get().then(function(doc) {
+            if (doc.exists) {
+               //   console.log("Document data:", doc.data().image);
+              
+            } else {
+               // doc.data() will be undefined in this case
+               console.log("Id tidak ada !");
+            }
+         }).catch(function(error) {
+            
+            console.log("Error getting document:", error);
+       });
+  
+    });      
+ 
+      </script>
 
 @stop

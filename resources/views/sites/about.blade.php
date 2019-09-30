@@ -24,7 +24,7 @@
 			<section class="contact-page-area section-gap">
 				<div class="container">
 					<div class="row">
-						{!! config('about.lokasi') !!}
+				    {!! config('about.lokasi')!!}
 						<div class="col-lg-4 d-flex flex-column address-wrap">
 							<div class="single-contact-address d-flex flex-row">
 								<div class="icon">
@@ -85,6 +85,22 @@
 
 @section('footer')
 
+	<script src="http://maps.googleapis.com/maps/api/js"></script>
+	<script>
+        // fungsi initialize untuk mempersiapkan peta
+        function initialize() {
+        var propertiPeta = {
+            center:new google.maps.LatLng(-6.681626 106.888831),
+            zoom:9,
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+        
+        var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
+        }
+
+        // event jendela di-load  
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 	<script>
 
   function kirimPesan() {

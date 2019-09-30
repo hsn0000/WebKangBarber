@@ -25,7 +25,7 @@
             var yyy = date.getFullYear();
             console.log("Quotes "+dari,judul,deskripsi);
             docRef.add({
-                tanggal:dd + '/' + mm +'/'+yyy,
+                tanggal:dd + ':' + mm +':'+yyy,
                 image:foto,
                 dari:dari,
                 judul:judul,

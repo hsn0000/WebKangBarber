@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('header')
-  {{!! config('barber.title_ubahSpray') !!}}
+  {{!! config('barber.title_ubahBodycare') !!}}
 @stop
 
 @section('content')
@@ -13,29 +13,29 @@
           <div class="col-md-12">
            <div class="panel">
 				<div class="panel-heading">
-				<h3 class="panel-title"><i class="fa fa-paper-plane-o"> UBAH PRODUK SPRAY</i> </h3>
+				<h3 class="panel-title"><i class="fa fa-paper-plane-o"> UBAH PRODUK BODYCARE</i> </h3>
 				</div>
 				<div class="panel-body">
               <form action="" method="" enctype="multipart/form-data">
            {{csrf_field()}}
         <div class="form-group ">
-          <img src="" id="imageLamaSpray" width ="250" alt="Gambar Lama"> <br><br>
+          <img src="" id="imageLamaBodycare" width ="250" alt="Gambar Lama"> <br><br>
           <label for="avatar">Ambil Gambar Baru</label>
-          <input type="file" value="upload" name="avatar" class="form-control padding-bottom-30" id="imageUbahSpray" required>
+          <input type="file" value="upload" name="avatar" class="form-control padding-bottom-30" id="imageUbahBodycare" required>
        </div>
        <div class="form-group ">
           <label for="deskripsi">Nama Produk</label>
-          <input name="deskripsi" type="text" class="form-control" id="nameProdukSpray" 
+          <input name="deskripsi" type="text" class="form-control" id="nameProdukBodycare" 
               aria-describedby="text" placeholder="Nama Produk" required>
        </div>
         <div class="form-group ">
             <label for="harga">Harga</label>
-            <input name="harga" type="number" class="form-control" id="priceSprayUpdate" 
+            <input name="harga" type="number" class="form-control" id="priceBodycareUpdate" 
                 aria-describedby="number" placeholder="Harga Barang" required>
         </div>
          </div>
-         <progress value="0" max="100" id="progressUbahSpray">0%</progress> <br><br>
-       <button type="button" class="btn btn-warning mt-5 " onclick="ubahSpray();" style="margin-left: 25px;"><i class="fa fa-paper-plane-o"></i> Update</button> <br><br>
+         <progress value="0" max="100" id="progressUbahBodycare">0%</progress> <br><br>
+       <button type="button" class="btn btn-warning mt-5 " onclick="ubahBodycare();" style="margin-left: 25px;"><i class="fa fa-paper-plane-o"></i> Update</button> <br><br>
          </div>
             </form>	
           </div>
@@ -55,14 +55,14 @@
 
             $(document).ready(function() {
                var id = <?php echo json_encode($id) ?>;
-               var docRef = firebase.firestore().collection("Shopping").doc("Spray").collection("Items").doc(id);
+               var docRef = firebase.firestore().collection("Shopping").doc("BodyCare").collection("Items").doc(id);
 
          docRef.get().then(function(doc) {
             if (doc.exists) {
                //   console.log("Document data:", doc.data().image);
-               $('#imageLamaSpray').attr('src', doc.data().image)
-               $('#nameProdukSpray').val(doc.data().name)
-               $('#priceSprayUpdate').val(doc.data().price)
+               $('#imageLamaBodycare').attr('src', doc.data().image)
+               $('#nameProdukBodycare').val(doc.data().name)
+               $('#priceBodycareUpdate').val(doc.data().price)
             } else {
                // doc.data() will be undefined in this case
                console.log("Id tidak ada !");
@@ -77,18 +77,18 @@
             
       //   update data existing  
 
-          function ubahSpray() {
+          function ubahBodycare() {
 
             var foto = "";
             var id = <?php echo json_encode($id) ?>;
             var firestore = firebase.firestore();
-            var docRef = firestore.collection("Shopping").doc("Spray").collection("Items").doc(id);
-            var progress=document.getElementById('progressUbahSpray')
-            var image=document.getElementById("imageUbahSpray").files[0];
-            var name = $('#nameProdukSpray').val();
-            var price =  parseInt($('#priceSprayUpdate').val());
+            var docRef = firestore.collection("Shopping").doc("BodyCare").collection("Items").doc(id);
+            var progress=document.getElementById('progressUbahBodycare')
+            var image=document.getElementById("imageUbahBodycare").files[0];
+            var name = $('#nameProdukBodycare').val();
+            var price =  parseInt($('#priceBodycareUpdate').val());
             var imageName=image.name;
-            var storageRef=firebase.storage().ref('Spray/'+imageName);
+            var storageRef=firebase.storage().ref('BodyCare/'+imageName);
             var uploadTask=storageRef.put(image);
          // ambil url image stelah di upload
             uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) { 
@@ -102,7 +102,7 @@
                         name:name,
                         price:price,
                      }).then(function(){
-                        window.location.href = "/spray"
+                        window.location.href = "/bodycare"
                      console.log("name di simpan");
                         
             
@@ -111,7 +111,7 @@
                         Swal.fire({
                         type: 'error',
                         title: 'Oops...',
-                        text: 'Update Spray Gagal!',
+                        text: 'Update Bodycare Gagal!',
                      }) 
                         console.log("Gagal: ",error);
                             
@@ -134,7 +134,7 @@
                Swal.fire({
                      position: 'top-end',
                      type: 'success',
-                     title: 'Udate Spray Berhasil',
+                     title: 'Udate Bodycare Berhasil',
                      showConfirmButton: false,
                      timer: 1500
                })
