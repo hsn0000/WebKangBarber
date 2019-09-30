@@ -28,7 +28,7 @@ class SiteController extends Controller
 
    public function ubahpost($id)
    {
-       return view('posts.post',['id' => $id]);
+       return view('posts.ubahpost',['id' => $id]);
    }
 
 }

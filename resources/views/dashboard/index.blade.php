@@ -1,5 +1,8 @@
 @extends('layouts.master')
 
+@section('header')
+  {{!! config('barber.title_dashboard') !!}}
+@stop
 
 @section('content')
 

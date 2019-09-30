@@ -11,7 +11,7 @@
     var judul = $('#judulPost').val();
     var deskripsi = $('#deskPost').val();
     var imageName=image.name;
-    var storageRef=firebase.storage().ref('Pomade/'+imageName);
+    var storageRef=firebase.storage().ref('Posting/'+imageName);
     var uploadTask=storageRef.put(image);
     // ambil url image stelah di upload
     uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) { 
@@ -19,8 +19,13 @@
         // alert(foto)
         console.log(foto)
     //  upload firestore
+            var date = new Date();
+            var dd = date.getDate();
+            var mm = date.getMonth();
+            var yyy = date.getFullYear();
             console.log("Quotes "+dari,judul,deskripsi);
             docRef.add({
+                tanggal:dd + '/' + mm +'/'+yyy,
                 image:foto,
                 dari:dari,
                 judul:judul,
@@ -101,13 +106,13 @@
             let new_html = '';
             new_html += '<tr>';
             new_html += '<td>';
-            new_html += '<p>tgl</p>';
+            new_html += data.tanggal;
             new_html += '</p>';
             new_html += '<td>';
             new_html += '<img src=" '+data.image+'" width="110px" style="float:left">';
             new_html += '</td>';
             new_html += '<td>';
-            new_html += data.dari;
+            new_html += '<p style="color:black"><b>"'+data.dari+'"</b></p>';
             new_html += '</td>';
             new_html += '<td>';
             new_html += data.judul;

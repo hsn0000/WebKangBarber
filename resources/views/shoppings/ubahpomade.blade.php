@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('header')
+  {{!! config('barber.title_ubahPomade') !!}}
+@stop
+
 @section('content')
 
 <div class="main">

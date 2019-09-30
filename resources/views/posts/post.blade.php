@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('header')
+  {{!! config('barber.title_post') !!}}
+@stop
+
 @section('content')
   <div class="main"> 
     <div class="main-content">
@@ -18,12 +22,12 @@
 									<table class="table table-hover" id="tablePost">
 										<thead class="thead-info">
 											<tr>
-                         <th style=" text-align: center;">TANGGAL</th>
-                         <th style=" text-align: center;">PHOTO</th>
-                         <th style=" text-align: center;">DARI</th>
-                         <th style=" text-align: center;">JUDUL</th>
-                         <th style=" text-align: center;">DESKRIPSI</th>
-                         <th style=" text-align: right;">AKSI</th>
+                         <th style=" color:black; text-align: center;">TANGGAL</th>
+                         <th style=" color:black; text-align: center;">PHOTO</th>
+                         <th style=" color:black; text-align: center;">DARI</th>
+                         <th style=" color:black; text-align: center;">JUDUL</th>
+                         <th style=" color:black; text-align: center;">DESKRIPSI</th>
+                         <th style=" color:black; text-align: right;">AKSI</th>
                          <th></th>
 											</tr>
 										</thead>

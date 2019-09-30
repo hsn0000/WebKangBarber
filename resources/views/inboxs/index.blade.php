@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('header')
+  {{!! config('barber.title_inbox') !!}}
+@stop
+
 @section('content')
   <div class="main">
     <div class="main-content">
@@ -14,11 +18,11 @@
 					<div class="panel-body">
 			           <table class="table table-hover" id="tableinbox">
 							<thead class="thead-info">
-								<tr>
-                                    <th style="">NAMA</th>
-                                    <th style="">EMAIL</th>
-                                    <th style="">SUBJECT</th>
-                                    <th style="">PESAN</th>
+			         <tr>
+                   <th style="">NAMA</th>
+                   <th style="">EMAIL</th>
+                   <th style="">SUBJECT</th>
+                   <th style="">PESAN</th>
 								</tr>
 							  </thead>
 			 				<tbody>

@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('header')
+  {{!! config('barber.title_banner') !!}}
+@stop
+
 @section('content')
   <div class="main">
     <div class="main-content">
