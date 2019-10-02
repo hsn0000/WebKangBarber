@@ -1,17 +1,16 @@
   // tambah pomade
   
-  function uploadPost() { 
+  function uploadPostModel() { 
 
     var foto = "";
     var firestore = firebase.firestore();
-    var docRef = firestore.collection("Posting");
-    var progress=document.getElementById('progressPost')
-    var image=document.getElementById("imagePost").files[0];
-    var dari = $('#dariPost').val();
-    var judul = $('#judulPost').val();
-    var deskripsi = $('#deskPost').val();
+    var docRef = firestore.collection("PostModel");
+    var progress=document.getElementById('progressPostModel')
+    var image=document.getElementById("imagePostModel").files[0];
+    var name = $('#namePostModel').val();
+    var deskripsi = $('#deskPostModel').val();
     var imageName=image.name;
-    var storageRef=firebase.storage().ref('Posting/'+imageName);
+    var storageRef=firebase.storage().ref('PostModel/'+imageName);
     var uploadTask=storageRef.put(image);
     // ambil url image stelah di upload
     uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) { 
@@ -23,15 +22,14 @@
             var dd = date.getDate();
             var mm = date.getMonth();
             var yyy = date.getFullYear();
-            console.log("Quotes "+dari,judul,deskripsi);
+            console.log("Quotes "+name,deskripsi);
             docRef.add({
                 tanggal:dd + '/' + mm +'/'+yyy,
                 image:foto,
-                dari:dari,
-                judul:judul,
+                name:name,
                 deskripsi:deskripsi,
             }).then(function(){
-              window.location.href = "/post";
+              window.location.href = "/postmodel";
             console.log("Berhasil di tambahkan");
 
             }).catch(function(error){
@@ -81,14 +79,14 @@
 
         
         var firestore = firebase.firestore();
-        var docRef = firestore.collection("Post");
+        var docRef = firestore.collection("PostModel");
         var storage = firebase.storage();
         var storageRef = storage.ref();
 
-            $('#tablePost').find('tbody').html('');
+            $('#tablePostModel').find('tbody').html('');
             var i=0;
 
-            firestore.collection("Posting").get().then(function(querySnapshot) {
+            firestore.collection("PostModel").get().then(function(querySnapshot) {
             console.log(querySnapshot);
             querySnapshot.forEach(function(doc) {
 
@@ -112,10 +110,7 @@
             new_html += '<img src=" '+data.image+'" width="110px" style="float:left">';
             new_html += '</td>';
             new_html += '<td>';
-            new_html += '<p style="color:black"><b>"'+data.dari+'"</b></p>';
-            new_html += '</td>';
-            new_html += '<td>';
-            new_html += data.judul;
+            new_html += '<p style="color:black"><b>"'+data.name+'"</b></p>';
             new_html += '</td>';
             new_html += '<td>';
             new_html += '<p>"'+data.deskripsi+'"</p>';
@@ -124,11 +119,11 @@
             new_html += "<button class='btn btn-danger btn-sm ml-5 float-right' input type='button' onclick='deletePost(\""+hasil+"\");'><i class='lnr lnr-trash'> Hapus</i></button>";
             new_html += '</td>';
             new_html += '<td>';
-            new_html += '<a href="ubahpost/'+hasil+'" class="btn btn-warning btn-sm float-right" data-target="#moadalUbah"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>';
+            new_html += '<a href="ubahpostmodel/'+hasil+'" class="btn btn-warning btn-sm float-right" data-target="#moadalUbah"> <i class="fa fa-paper-plane-o"> Ubah</i> </a>';
             new_html += '</td>';
             new_html += '</tr>';
 
-            $('#tablePost').find('tbody').append(new_html);
+            $('#tablePostModel').find('tbody').append(new_html);
 
 
      }
@@ -139,7 +134,7 @@
         console.log(id);
         var firestore = firebase.firestore();    
     
-    firestore.collection("Posting").doc(id).delete().then(function() {
+    firestore.collection("PostModel").doc(id).delete().then(function() {
 
         Swal.fire({
             title: 'Apa anda yakin?',
@@ -160,7 +155,7 @@
                     timer: 1500
             })
             } 
-            window.location.href =('/post');
+            window.location.href = "/postmodel";
 
         })
 

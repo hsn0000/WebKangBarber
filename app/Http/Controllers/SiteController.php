@@ -23,12 +23,23 @@ class SiteController extends Controller
 
    public function post()
    { 
-       return view('posts.post');
+       return view('postberitas.post');
    }
 
    public function ubahpost($id)
    {
-       return view('posts.ubahpost',['id' => $id]);
+       return view('postberitas.ubahpost',['id' => $id]);
+   }
+
+   
+   public function postmodel()
+   { 
+       return view('postmodels.postmodel');
+   }
+
+   public function ubahpostmodel($id)
+   {
+       return view('postmodels.ubahpostmodel',['id' => $id]);
    }
 
 }

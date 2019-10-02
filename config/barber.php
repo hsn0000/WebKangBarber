@@ -4,8 +4,10 @@
   // title backend
 //   post
      'title_inbox' => '<title>Kotak Masuk</title>',
-     'title_post' => '<title>Post</title>',
-     'title_ubahPost' => '<title>Ubah Post</title>',
+     'title_post' => '<title>Post Berita</title>',
+     'title_ubahPost' => '<title>Ubah Post Berita</title>',
+     'title_postmodel' => '<title>Post Model</title>',
+     'title_ubahPostmodel' => '<title>Ubah Post Model</title>',
 //   banner
      'title_dashboard' => '<title>Dashboard</title>',
      'title_banner' => '<title>Banner</title>',
@@ -60,7 +62,7 @@
      'p_model1' => ' Model rambut sempurna untuk tidak terlihat sangat pendek. 
           Bagian belakang dari rambut anda akan dipotong sangat rapi dan mulus.',
 
- // model 2
+ // model 2 
      'conten_model2_img' => '/frontend/img/model/m2.jpg',
      'span1_model2' => '244',
      'span2_model2' => '57',
@@ -106,7 +108,7 @@
      'p_berita1' => 'Kang gunawan begitulah panggilan dari karyawan kita ini yang bertugas di Booking Kang Barber yang ada di bogor,
           beliaw mampu mengubah dan membuat model rambut anda akan jauh tampak keren dan elegan',
 
-// berita 2
+// berita 2   
      'image_berita2_url' => '/frontend/img/berita/b2.jpg',
      'tanggal_berita2' => '25 september, 2019  |  By',
      'kang_berita2' => 'Kang Faisal',

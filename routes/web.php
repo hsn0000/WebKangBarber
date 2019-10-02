@@ -21,6 +21,9 @@ Route::get('/', function () {
  Route::get('/inbox','SiteController@inbox');
  Route::get('/post','SiteController@post');
  Route::get('/ubahpost/{id}','SiteController@ubahpost');
+ Route::get('/postmodel','SiteController@postmodel');
+ Route::get('/ubahpostmodel/{id}','SiteController@ubahpostmodel');
+
 
  Route::get('/login', 'AuthController@login');
  Route::get('/loginAdmin', 'AuthController@loginAdmin');

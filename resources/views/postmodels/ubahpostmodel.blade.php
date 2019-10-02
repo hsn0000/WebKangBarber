@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('header')
-  {{!! config('barber.title_ubahPost') !!}}
+  {{!! config('barber.title_ubahPostmodel') !!}}
 @stop
 
 @section('content')
@@ -13,33 +13,28 @@
           <div class="col-md-12">
            <div class="panel">
 				<div class="panel-heading">
-				<h3 class="panel-title"><i class="fa fa-paper-plane-o"> UBAH POSTINGAN LOOKBOOK</i> </h3>
+				<h3 class="panel-title"><i class="fa fa-paper-plane-o"> UBAH POST MODEL RAMBUT</i> </h3>
 				</div>
 				<div class="panel-body">
               <form action="" method="" enctype="multipart/form-data">
            {{csrf_field()}}
         <div class="form-group ">
-          <img src="" id="imageLamaPost" width ="250" alt="Gambar Lama"> <br><br>
+          <img src="" id="imageLamaPostModel" width ="250" alt="Gambar Lama"> <br><br>
           <label for="avatar">Ambil Gambar Baru</label>
-          <input type="file" value="upload" name="avatar" class="form-control padding-bottom-30" id="ubahImagePost" required>
+          <input type="file" value="upload" name="avatar" class="form-control padding-bottom-30" id="ubahImagePostModel" required>
        </div>
        <div class="form-group ">
-          <label for="dari">Dari</label>
-          <input name="dari" type="text" class="form-control" id="ubahDariPost" 
-              aria-describedby="text" placeholder="Dari" required>
-       </div>
-       <div class="form-group ">
-          <label for="Judul">Judul</label>
-          <input name="Judul" type="text" class="form-control" id="ubahJudulPost" 
-              aria-describedby="text" placeholder="Judul" required>
+          <label for="Judul">Nama Model Rambut</label>
+          <input name="Judul" type="text" class="form-control" id="ubahNamePostModel" 
+              aria-describedby="text" placeholder="Nama Model Rambut" required>
        </div>
        <div class="form-group">
          <label for="deskripsi">Deskripsi</label>
-         <textarea name="deskripsi" class="form-control" placeholder="Deskripsi" value="" id="ubahDeskPost" rows="3" ></textarea>
+         <textarea name="deskripsi" class="form-control" placeholder="Deskripsi" value="" id="ubahDeskPostModel" rows="3" ></textarea>
        </div>
          </div>
-         <progress value="0" max="100" id="progressUbahPost">0%</progress> <br><br>
-       <button type="button" class="btn btn-warning mt-5 " onclick="ubahPost();" style="margin-left: 25px;"><i class="fa fa-paper-plane-o"></i> Update</button> <br><br>
+         <progress value="0" max="100" id="progressUbahPostModel">0%</progress> <br><br>
+       <button type="button" class="btn btn-warning mt-5 " onclick="ubahPostModel();" style="margin-left: 25px;"><i class="fa fa-paper-plane-o"></i> Update</button> <br><br>
          </div>
             </form>	
           </div>
@@ -59,15 +54,14 @@
 
             $(document).ready(function() {
                var id = <?php echo json_encode($id) ?>;
-               var docRef = firebase.firestore().collection("Posting").doc(id);
+               var docRef = firebase.firestore().collection("PostModel").doc(id);
 
          docRef.get().then(function(doc) {
             if (doc.exists) {
                //   console.log("Document data:", doc.data().image);
-               $('#imageLamaPost').attr('src', doc.data().image)
-               $('#ubahDariPost').val(doc.data().dari)
-               $('#ubahJudulPost').val(doc.data().judul)
-               $('#ubahDeskPost').val(doc.data().deskripsi)
+               $('#imageLamaPostModel').attr('src', doc.data().image)
+               $('#ubahNamePostModel').val(doc.data().name)
+               $('#ubahDeskPostModel').val(doc.data().deskripsi)
             } else {
                // doc.data() will be undefined in this case
                console.log("Id tidak ada !");
@@ -82,23 +76,22 @@
             
       //   update data existing  
 
-          function ubahPost() {
+          function ubahPostModel() {
 
             var foto = "";
             var id = <?php echo json_encode($id) ?>;
             var firestore = firebase.firestore();
-            var docRef = firestore.collection("Posting").doc(id);
-            var progress=document.getElementById('progressUbahPost')
-            var image=document.getElementById("ubahImagePost").files[0];
-            var dari = $("#ubahDariPost").val();
-            var judul = $ ("#ubahJudulPost").val();
-            var deskripsi = $('#ubahDeskPost').val();         
+            var docRef = firestore.collection("PostModel").doc(id);
+            var progress=document.getElementById('progressUbahPostModel')
+            var image=document.getElementById("ubahImagePostModel").files[0];
+            var name = $ ("#ubahNamePostModel").val();
+            var deskripsi = $('#ubahDeskPostModel').val();         
             var date = new Date();
             var dd = date.getDate();
             var mm = date.getMonth();
             var yyy = date.getFullYear();
             var imageName=image.name;
-            var storageRef=firebase.storage().ref('Posting/'+imageName);
+            var storageRef=firebase.storage().ref('PostModel/'+imageName);
             var uploadTask=storageRef.put(image);
          // ambil url image stelah di upload
             uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) { 
@@ -106,16 +99,15 @@
                // alert(foto)
                console.log(foto)
          //  upload firestore
-                     console.log("Quotes "+dari+judul+deskripsi);
+                     console.log("Quotes "+name+deskripsi);
                      docRef.update({
                        tanggal: dd + '/' + mm +'/'+yyy,
                         image:foto,
-                        dari:dari,
-                        judul:judul,
+                        name:name,
                         deskripsi:deskripsi
                      }).then(function(){
 
-                        window.location.href = "/post"
+                        window.location.href = "/postmodel"
                      console.log("Deskripsi di simpan");
                         
             
@@ -151,8 +143,6 @@
                      showConfirmButton: false,
                      timer: 1500
                })
-              
-            
                
          })
 
