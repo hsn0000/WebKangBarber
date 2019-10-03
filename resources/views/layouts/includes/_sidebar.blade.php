@@ -2,7 +2,7 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="{{url('/dashboard')}}" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="{{url('/dashboard')}}" class="active"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
 				 
 						<li><a href="{{url('/banner')}}" class=""><i class="lnr lnr-file-empty"></i> <span>Banner</span></a></li>
 						<li><a href="{{url('/lookbook')}}" class=""><i class="lnr lnr-dice"></i> <span>LookBook</span></a></li>
@@ -14,6 +14,17 @@
 									<li><a href="{{url('/spray')}}" class="">Spray</a></li>
 									<li><a href="{{url('/haircare')}}" class="">HairCare</a></li>
 									<li><a href="{{url('/bodycare')}}" class="">BodyCare</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="#subSalon" data-toggle="collapse" class="collapsed" aria-expanded="false"><i class="lnr lnr-home"></i> <span>Salon</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subSalon" class="collapse" aria-expanded="false" style="height: 0px;">
+								<ul class="nav">
+									<li><a href="{{url('/jakarta')}}" class="">Jakarta</a></li>
+									<li><a href="{{url('/bogor')}}" class="">Bogor</a></li>
+									<li><a href="{{url('/tangerang')}}" class="">Tangerang</a></li>
+									<li><a href="{{url('/bekasi')}}" class="">Bekasi</a></li>
 								</ul>
 							</div>
 						</li>
