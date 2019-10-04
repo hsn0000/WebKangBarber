@@ -42,4 +42,5 @@ class SiteController extends Controller
        return view('postmodels.ubahpostmodel',['id' => $id]);
    }
 
+  
 }

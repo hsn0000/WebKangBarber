@@ -15,7 +15,8 @@
               <h3 class="panel-title" style="color:black;font-weight:bold;"><i class="fa fa-line-chart"> POSTINGAN RAMBUT TERPOPULER</i></h3>
               <p id="p-lookbook">apa sajah model rambut terpopuler saat ini, hanya ada di <span style="color:black;font-weight:bold;text-decoration:underline;"> BOOKING KANG BARBER</span></p>
               <div class="right">
-              <button class="btn" data-toggle="modal" data-target="#exampleModal" id="tambahPost" ><b><i class="lnr lnr-plus-circle" >Tambahkan Postingan</i></b></button>
+              <button class="btn" data-toggle="modal" data-target="#exampleModal" id="tambahPost" ><b><i class="lnr lnr-plus-circle" >Tambahkan Postingan</i></b></button><br>
+              <a href="/" class="btn btn-info btn-sm ml-5 float-right" id="pratinjaw"><i class="lnr lnr-thumbs-up" id="pratinjaw_p"></i> Pratinjau </a>
                </div>
 							</div>
 								<div class="panel-body">
@@ -94,3 +95,4 @@
     
 @stop
 
+  

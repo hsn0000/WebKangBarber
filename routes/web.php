@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('sites.home');
 });
+
  Route::get('/about', 'SiteController@about');
  Route::get('/download', 'SiteController@download');
  Route::get('/inbox','SiteController@inbox');

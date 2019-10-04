@@ -121,9 +121,6 @@
             new_html += '<td>';
             new_html += "<button class='btn btn-danger btn-sm ml-5 float-right' input type='button' onclick='deletePost(\""+hasil+"\");'><i class='lnr lnr-trash'> Hapus</i></button>";
             new_html += '</td>';
-            new_html += '<td>';
-            new_html += '<a href="" class="btn btn-info btn-sm ml-5 float-right"><i class="lnr lnr-thumbs-up"></i> Pratinjau </a>';
-            new_html += '</td>';
             new_html += '</tr>';
            
             $('#tablePostModel').find('tbody').append(new_html);

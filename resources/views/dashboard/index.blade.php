@@ -48,11 +48,12 @@
 									<div class="metric">
 										<span class="icon"><i class="fa fa-bar-chart"></i></span>
 										<p>
-											<span class="number">75%</span>
+											<span class="number">112</span>
 											<span class="title">Pengguna aktip </span>
 										</p>
 									</div>
 								</div>
+								<canvas id="myChart" ></canvas>
 							</div>
 						</div>
 					</div>
@@ -64,5 +65,8 @@
 @stop
 
 @section('footer')
-   
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="{{asset('admin/assets/scripts/dashboard.js')}}"></script>
+  
 @stop

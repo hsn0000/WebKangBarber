@@ -245,7 +245,8 @@
 					</div>					
 					<div class="row" id="postItem">
 						
-					
+                    <!-- looping -->
+
 					</div>
 		    	</div>
 			</section>
