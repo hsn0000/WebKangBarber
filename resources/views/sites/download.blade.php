@@ -15,8 +15,8 @@
 							<h4 style="color: #808080" >
 							{{config('galery.h4_download')}}
 							</h4> <br>
-                            <a href="https://drive.google.com/file/d/16YebLwbHDozI9-GibC3UoxVQyD2pPikK/view?usp=sharing"  class="genric-btn primary large" >Download Client App</a>
-                            <a href="https://drive.google.com/file/d/1gORXq_AvV6DGm_Lll0dPbS8Ac_zKHRAk/view?usp=sharing" class="genric-btn info large">Download Staff App</a>
+                            <a href="https://drive.google.com/file/d/16YebLwbHDozI9-GibC3UoxVQyD2pPikK/view?usp=sharing"  class="genric-btn primary large" target="_blank" >Download Client App</a>
+                            <a href="https://drive.google.com/file/d/1gORXq_AvV6DGm_Lll0dPbS8Ac_zKHRAk/view?usp=sharing" class="genric-btn info large" target="_blank">Download Staff App</a>
 						</div>										
 					</div>
 				</div>					
