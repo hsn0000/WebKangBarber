@@ -17,7 +17,7 @@
 							<img src="{{asset('/frontend/img/banner13.jpg')}}" width="190;" height="190;" class="img-circle" alt="Avatar">
 							<h2 class="name">Hallo <span style="color:black;"> Pengunjung </span></h2>
                         </div>
-                        <p>untuk CRUD salon & Staff karyawan tidak jadi di implementasikan karna takut ada yang menyalah gunakan karna data sensitif akan conflik di android </p>
+                        <p> to be continue ... </p>
 					</div>
 				</div>
 			</div>

@@ -26,7 +26,7 @@
 			        <ul class="nav-menu">
 			          <li><a href="{{url('/')}}">Beranda</a></li>		          		          
 					  <li><a href="{{url('/about')}}">Tentang Kami</a></li>
-					  <li><a href="{{url('/')}}" download>Dokumentasi</a></li>
+					  <li><a href="{{asset('/frontend/img/documentasi/DocumentasiKangBarber-dikonversi.pdf')}}" download>Dokumentasi</a></li>
 					  <li><a href="{{url('/login')}}">Login</a></li>
 			        </ul>
 			      </nav><!-- #nav-menu-container -->		    		
