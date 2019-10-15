@@ -24,7 +24,9 @@
 			      </div>
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
-			          <li><a href="{{url('/')}}">Beranda</a></li>		          		          
+					  <li><a href="{{url('/')}}">Beranda</a></li>
+					  <li><a href="#model">Model Terpopuler</a></li>
+					  <li><a href="#post">Berita Kang Barber</a></li>			          		          
 					  <li><a href="{{url('/about')}}">Tentang Kami</a></li>
 					  <li><a href="{{asset('/frontend/img/documentasi/DocumentasiKangBarber-dikonversi.pdf')}}" download>Dokumentasi</a></li>
 					  <li><a href="{{url('/login')}}">Login</a></li>
